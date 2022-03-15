@@ -1,0 +1,8 @@
+{
+    "data": [
+        {"id": "c1", "name": "None", "country": "India"},
+        {"id": "c2", "name": "Kodavasal", "country": "India"},
+        {"id": "c3", "name": "Kumbakonam", "country": "India"},
+        {"id": "c4", "name": "Mumbai", "country": "India"}
+    ]
+}
