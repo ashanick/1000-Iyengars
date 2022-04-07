@@ -1,13 +1,9 @@
 .form {
-    /* box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-    background-color: white; */
-    display: grid;
-    grid-template-columns: 0.5fr 1fr auto;
-    grid-column-gap: 0.5rem;
+    /* background-color: grey; */
+    display:flex;
     justify-content: center;
-    border-radius: 6px;
     width: auto;
-    margin: 0px 8rem;
+    margin: 0px 6rem;
     padding:0
     /* padding: 1rem 0; */
   }
@@ -17,49 +13,9 @@
     padding: 0 1rem;
     flex: 1;
     display: flex;
-    /* gap: 1rem; */
     align-content: center;
     align-items: center;
     text-align: center;
-    /* justify-content: space-between; */
-}
-
-.contentalpha {
-  display: flex;
-  margin: 0 0.5rem;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.controlsearch{
-  display: flex;
-  /* grid-template-columns: .5fr 0.5fr auto; */
-  /* margin: 0 1rem; */
-  justify-content:center;
-  align-items: center; 
-  align-content: center;
-}
-
-.searchcontent{
-  /* background-color: gold; */
-  /* box-shadow: 0 1px 4px rgba(0,0,0,0.2);  */
-  /* display: flex; */
-  /* border: 1px solid gold; */
-  align-items: center;
-  text-align: center;
-}
-
-.multiplesearch{
-  display: flex;
-  margin: 0 ;
-  padding: 0 1rem;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.alpha {
-    display: flex;
-    margin-left: 8px;
 }
 
 .labelinput {
@@ -80,7 +36,4 @@
     font-size: small;
   }
 
-  .multiplesearch{
-    display:block
-  }
 }

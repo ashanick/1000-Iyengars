@@ -1,8 +1,22 @@
 {
     "data": [
-        {"id": "c1", "name": "None", "country": "India"},
-        {"id": "c2", "name": "Kodavasal", "country": "India"},
-        {"id": "c3", "name": "Kumbakonam", "country": "India"},
-        {"id": "c4", "name": "Mumbai", "country": "India"}
+        {"id": "c1", "name": "None", "country": "India", "aVillage": "true"},
+        {"id": "c2", "name": "Atlanta", "country": "USA", "aVillage": "false"},
+        {"id": "c3", "name": "Austin", "country": "USA", "aVillage": "false"},
+        {"id": "c4", "name": "Bangalore", "country": "India", "aVillage": "false"},
+        {"id": "c5", "name": "Boston", "country": "USA", "aVillage": "false"},
+        {"id": "c6", "name": "Calgary", "country": "Canada", "aVillage": "false"},
+        {"id": "c7", "name": "Chennai", "country": "India", "aVillage": "false"},
+        {"id": "c8", "name": "Coimbatore", "country": "India", "aVillage": "false"},
+        {"id": "c9", "name": "Dubai", "country": "Emirates", "aVillage": "false"},
+        {"id": "c10", "name": "Edinborough", "country": "England", "aVillage": "false"},
+        {"id": "c11", "name": "Hartford", "country": "USA", "aVillage": "false"},
+        {"id": "c12", "name": "Kodavasal", "country": "India", "aVillage": "true"},
+        {"id": "c13", "name": "Kumbakonam", "country": "India", "aVillage": "true"},
+        {"id": "c14", "name": "London", "country": "England", "aVillage": "false"},
+        {"id": "c15", "name": "Los Angeles", "country": "USA", "aVillage": "false"},
+        {"id": "c16", "name": "Mannargudi", "country": "India", "aVillage": "true"},
+        {"id": "c17", "name": "Moorestown", "country": "USA", "aVillage": "false"},
+        {"id": "c18", "name": "Mumbai", "country": "India", "aVillage": "false"}
     ]
 }

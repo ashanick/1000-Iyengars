@@ -4,7 +4,7 @@ import UsersGrid from "../components/users/users-grid"
 import Hero from "../components/homepage/hero"
 
 const fetcher = async(url) => {
-    console.log('in fetcher')
+    console.log('in fetcher all clans')
     const res = await fetch(url)
     const data = await res.json()
     if (!data || res.status != 200) {

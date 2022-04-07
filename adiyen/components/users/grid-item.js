@@ -6,7 +6,7 @@ import classes from './grid-item.module.css'
 function GridItem(props) {
     const {id, name, imageURL} = props
     const imagePath=`/${imageURL}`
-    console.log('Grid Item : ', props)
+    // console.log('Grid Item : ', props)
     const linkPath = `/users/${name}`
     return (
         <li className={classes.grid}>
