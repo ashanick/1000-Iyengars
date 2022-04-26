@@ -51,7 +51,7 @@ function SearchAll (){
 
     return (
         <div>
-            <h1>Common Search</h1>
+            {/* <h1>Common Search</h1> */}
             {members && 
                 <UsersGrid items={members.membersData} />
             }

@@ -50,28 +50,29 @@ function UserDetailPage () {
     // console.log('After fetching graph data', data.data)
     return (
     <div>
-        <div className={classes.indivuser}>
-            <div>
-                {data &&
-                    <div>
-                        <IndivUser key={data.member.member[0].id} 
-                            name={data.member.member[0].id} 
-                            ecdescrition={data.member.member[0].ecdescription}
-                            imageUrl={data.member.member[0].imageURL}
-                            items={data.member}
-                            />
-                    </div>
-                } 
-            </div>
-            {/* {data && 
-            <AllUsersGraph items={data.data} />
-            } */}
+        <div>
+            {data &&
+                <div>
+                    <IndivUser key={data.member.member[0].id} 
+                        name={data.member.member[0].id} 
+                        ecdescrition={data.member.member[0].ecdescription}
+                        imageUrl={data.member.member[0].imageURL}
+                        items={data.member}
+                        />
+                </div>
+            } 
         </div>
+        <div>
+                Paranoia
+        </div>
+        <div>
+            Memories
         {/* <div>
             { data.memories &&   
                 <MemoriesGrid items={data.memories} />
             }
         </div> */}
+        </div>
     </div>
     )
 

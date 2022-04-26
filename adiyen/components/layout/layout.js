@@ -3,6 +3,7 @@
 import Hero from '../homepage/hero';
 import NewSearch from '../users/new-search';
 import MainHeader from './main-header';
+import FooterPage from './footer-page';
 // import Nav from './nav';
 
 function Layout(props) {
@@ -12,9 +13,11 @@ function Layout(props) {
       {/* <Nav /> */}
       <MainHeader />
       <NewSearch />
-      <hr style={{border: '1px solid green'}}/>
+      <hr style={{border: '1px solid red'}}/>
       {/* <Hero /> */}
       <main style={{margin: '1rem 5rem'}}>{props.children}</main>
+      <hr style={{border: '1px solid red'}}/>
+      <FooterPage />
     </div>
   );
 }

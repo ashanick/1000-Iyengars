@@ -1,0 +1,40 @@
+.footer{
+    width: 100%;
+    align-items: baseline;
+    padding: 0 5rem;
+    background-color: black;
+}
+
+.footermenu {
+  display: flex;
+  justify-content: centre;
+  /* max-width: 30rem; */
+}
+
+.footercontentabout {
+  margin: 0.5rem;
+  padding-right: 10px;
+  max-width: 60rem;
+  text-align: center;
+  /* background-color: azure; */
+}
+
+.footercontentothers {
+  margin: 0.5rem;
+  padding-left: 5rem;
+  /* max-width: 28rem; */
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 0;
+    width: 100%
+  }
+  .footermenu{
+    display: block;
+  }
+
+  .footercontentabout {
+    max-width: 30rem;
+  }
+}

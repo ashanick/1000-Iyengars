@@ -1,0 +1,16 @@
+.detailitem{
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detailitemcontent {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.userdetail__image {
+    overflow: hidden;
+    border-radius: 5px;
+}

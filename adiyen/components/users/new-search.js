@@ -18,11 +18,11 @@ function NewSearch(){
 
     if (citiesData) {
         ancestralVillage = citiesData.data.filter(cc => cc.aVillage === "true")
-        console.log('Av', ancestralVillage)
+        // console.log('Av', ancestralVillage)
 
     }
 
-    console.log('Cities : ', citiesData.data)
+    // console.log('Cities : ', citiesData.data)
     console.log('Education : ', educationData.data)
 
     function submitHandler(event){
@@ -39,15 +39,29 @@ function NewSearch(){
         router.push(searchPath)
     }  
     
-    function clearHandle(){
-        console.log('Clear')
+    function handleReset(){
+        console.log('Clear all submited options')
+        inputRef.current.value=""
+        cityInputRef.current.value = ""
+        ancestryInputRef.current.value = ""
+        professionInputRef.current.value = ""
+        educationInputRef.current.value = ""
     }
 
     return (
+        <div>
+            <div className={classes.topcontent}>
+            Iyengar's Network is a collection the base of which has been drawn from my extended families across Kumbakonam, Kodavasal.
+                    Mannargudi, Vaduvoor, Vazhuthoor, and Vippodu. 
+                    <p>The hompage showcases individuals with at least 4 generations following them. 
+                    The search options can be used individually or combined for a more targeted search.
+                    </p>
+                    <h4 style={{color: 'red', textAlign: 'center'}}>Use Connections to find links between two people</h4>
+            </div>
         <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.control}>
                 <label htmlFor="typename" className={classes.labelinput}>
-                    <h3 style={{marginRight: '2px'}}>Name</h3>
+                    <h3 style={{marginRight: '2px', color: 'red'}}>Name</h3>
                 </label>
                 <input 
                     type="text"
@@ -59,7 +73,7 @@ function NewSearch(){
             </div>          
             <div className={classes.control}>
                 <label htmlFor="ancestryVillage" className={classes.labelinput}>
-                    <h3 style={{marginRight: '2px'}}>Ancestral Village</h3>
+                    <h3 style={{marginRight: '2px', color: 'red'}}>Ancestral Village</h3>
                 </label>
                 <select id='ancestryVillage' ref={ancestryInputRef}>
                     {
@@ -74,7 +88,7 @@ function NewSearch(){
 
             <div className={classes.control}>
                 <label htmlFor="cityname" className={classes.labelinput} >
-                    <h3 style={{marginRight: '2px'}}>City</h3>
+                    <h3 style={{marginRight: '2px', color: 'red'}}>City</h3>
                 </label>
                 <select id='cityname' ref={cityInputRef}>
                     {
@@ -89,11 +103,11 @@ function NewSearch(){
 
             <div className={classes.control}>
                 <label htmlFor="educationName" className={classes.labelinput} >
-                    <h3 style={{marginRight: '2px'}}>Education</h3>
+                    <h3 style={{marginRight: '2px', color: 'red'}}>Education</h3>
                 </label>
                 <select id='educationName' ref={educationInputRef}>
                     {
-                        citiesData.data.map(city => {
+                        educationData.data.map(city => {
                             return (
                                 <option key = {city.name} value={city.name}>{city.name}</option>
                             )
@@ -104,7 +118,7 @@ function NewSearch(){
 
             <div className={classes.control}>
                 <label htmlFor="professionName" className={classes.labelinput} >
-                    <h3 style={{marginRight: '2px'}}>Profession</h3>
+                    <h3 style={{marginRight: '2px', color: 'red'}}>Profession</h3>
                 </label>
                 <select id='professionName' ref={professionInputRef}>
                     {
@@ -117,13 +131,21 @@ function NewSearch(){
                 </select>
             </div>
 
-            <div className={classes.control}>
-                <Button>Find </Button>
+            <div className={classes.formsubmitbutton}>
+                <Button >Find </Button>
             </div>
-            <div className={classes.control}>
+            {/* <div className={classes.control}>
                 <button style={{backgroundColor: 'red'}} onClick={clearHandle}>Clear </button>
-            </div>
+            </div> */}
         </form>
+        <div className={classes.formresetbutton}>
+            <Button 
+                onClick={handleReset}>
+                    Reset Search
+            </Button>
+        </div>
+
+        </div>
     )
 }
 

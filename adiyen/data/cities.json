@@ -17,6 +17,8 @@
         {"id": "c15", "name": "Los Angeles", "country": "USA", "aVillage": "false"},
         {"id": "c16", "name": "Mannargudi", "country": "India", "aVillage": "true"},
         {"id": "c17", "name": "Moorestown", "country": "USA", "aVillage": "false"},
-        {"id": "c18", "name": "Mumbai", "country": "India", "aVillage": "false"}
+        {"id": "c18", "name": "Mumbai", "country": "India", "aVillage": "false"},
+        {"id": "c13", "name": "Vayuthur", "country": "India", "aVillage": "true"},
+        {"id": "c13", "name": "Vippodu", "country": "India", "aVillage": "true"}
     ]
 }

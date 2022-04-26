@@ -110,6 +110,7 @@ export default function handler({query: {userName}}, res) {
                         }
                         
                         if (people) {
+                            
                             if (record._fields[2].length === 1) {
                                 if (record._fields[3][0] === "incoming"){
                                     children.push ({
@@ -117,8 +118,10 @@ export default function handler({query: {userName}}, res) {
                                     })
                                 } 
                                 if (record._fields[3][0] === "outgoing" ){
+                                    // console.log('Parents : ', record._fields[2].end)
                                     parents.push({
-                                        name: record._fields[2].end.properties.name 
+                                        name: record._fields[2].end.properties.name,
+                                        imageURL: record._fields[1].properties.imageURL 
                                     })
                                 }
                             }
@@ -138,8 +141,8 @@ export default function handler({query: {userName}}, res) {
                         }
 
                         if (record._fields[3][0] === "outgoing" && record._fields[3][1] === "incoming" && record._fields[2].length === 2) {
-                            console.log('Sibling, ', record._fields[3])
-                            console.log('Sibling, ', record._fields[2])
+                            // console.log('Sibling, ', record._fields[3])
+                            // console.log('Sibling, ', record._fields[2])
                             siblings.push({
                                 name: record._fields[2].end.properties.name 
                             })

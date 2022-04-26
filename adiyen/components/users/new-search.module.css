@@ -23,6 +23,23 @@
   padding: 0 5px;
 }
 
+.topcontent{
+  margin: 0.5rem 5rem;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  /* display: inline-flex; */
+}
+
+.formsubmitbutton{
+  align-content: center;
+}
+
+.formresetbutton{
+  align-content: center;
+  margin-left: 50rem;
+}
+
 @media (max-width: 768px) {
   .form {
     display: grid;
@@ -36,4 +53,24 @@
     font-size: small;
   }
 
+  .labelinput{
+    margin-top: 0.5rem;
+  }
+
+  .topcontent {
+    margin: 1rem 1.5rem;
+    text-align: 'center'
+  }
+
+  .formsubmitbutton{
+    margin: 0.5rem 0 0 10rem ;
+    align-content: center;
+    align-self: center;
+  }
+
+  .formresetbutton{
+    margin: 0.5rem 0 0 11rem ;
+    align-content: center;
+    align-self: center;
+  }
 }

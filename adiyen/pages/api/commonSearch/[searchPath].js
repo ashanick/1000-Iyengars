@@ -16,9 +16,30 @@ export default function handler({query: {searchPath}}, res) {
       searchStatement = searchStatement + " WHERE m.name contains '" + xx[0]+"'"
     } 
     // xx 1 ancestry
-    if (xx[1] !== '') {
-      searchStatement = searchStatement + " WHERE m.name contains '" + xx[1]+"'"
+    if (xx[1] !== 'None') {
+      console.log('Ancestry')
+      searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:BELONGS_TO]-(c:Cities {name: '" + xx[1] + "'}) "
     }
+
+    // xx 2 cities
+    if (xx[2] !== 'None') {
+      console.log('City')
+      searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:LIVED_IN]-(c:Cities {name: '" + xx[2] + "'}) "
+    }
+
+    
+    // xx ancestry and part name
+    if (xx[0] !==  '' && xx[1] !== 'None') {
+      console.log('Combined name ancesrty')
+      searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:BELONGS_TO]-(c:Cities {name: '" + xx[1] + "'})  WHERE m.name contains '" + xx[0]+"'"
+    } 
+
+    // xx city and part name
+    if (xx[0] !==  '' && xx[2] !== 'None') {
+      console.log('Combined name city')
+      searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:LIVED_IN]-(c:Cities {name: '" + xx[2] + "'})  WHERE m.name contains '" + xx[0]+"'"
+    } 
+
     searchStatement = searchStatement + ' Return m'
     console.log('Where Clause Name : ', searchStatement)
     var membersList  = []

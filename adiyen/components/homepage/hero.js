@@ -4,9 +4,12 @@ import classes from './hero.module.css'
 function Hero(){
     return (
         <section className={classes.hero}>
-            <div >
-                <h1>Call It Geneaology</h1>
-                <h2>OR</h2>
+            <div className={classes.image}>
+                Asha Picture here
+            </div>
+            <div className={classes.herodescription}>
+                <h1>Welcome to 1000 Iyengars ++</h1>
+                <p>Like most Iyengars, I am </p>
             </div>
         </section>
     )

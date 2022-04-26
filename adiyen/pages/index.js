@@ -32,7 +32,7 @@ function HomePage(){
                     name="description" 
                     content="Find and connect with the greater Iyengars and their extended families" />
             </Head>
-            <Hero />
+            {/* <Hero /> */}
             <UsersGrid items={data.membersData} />
         </div>
     )
