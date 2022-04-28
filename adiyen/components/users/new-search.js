@@ -23,7 +23,7 @@ function NewSearch(){
     }
 
     // console.log('Cities : ', citiesData.data)
-    console.log('Education : ', educationData.data)
+    // console.log('Education : ', educationData.data)
 
     function submitHandler(event){
         event.preventDefault()
@@ -53,9 +53,8 @@ function NewSearch(){
             <div className={classes.topcontent}>
             Iyengar's Network is a collection the base of which has been drawn from my extended families across Kumbakonam, Kodavasal.
                     Mannargudi, Vaduvoor, Vazhuthoor, and Vippodu. 
-                    <p>The hompage showcases individuals with at least 4 generations following them. 
+                    The hompage showcases individuals with at least 4 generations following them. 
                     The search options can be used individually or combined for a more targeted search.
-                    </p>
                     <h4 style={{color: 'red', textAlign: 'center'}}>Use Connections to find links between two people</h4>
             </div>
         <form className={classes.form} onSubmit={submitHandler}>

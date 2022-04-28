@@ -7,13 +7,16 @@ var driver = neo4j.driver(
 
 var session = driver.session();
 export default function handler({query: {searchPath}}, res) {
-    console.log('Boom Boom Boom +++ V2 Boom : ', searchPath)
+    console.log('Boom Boom Boom Common Search +++ V2 Boom : ', searchPath)
     const xx = searchPath.split('+')
     console.log('XX ', xx[0])
     var searchStatement = 'Optional MATCH (m:Member)';
+    var testString = xx[0].charAt(0).toUpperCase() + xx[0].slice(1)
+    console.log('Converted to Upper Case : ', testString)
+     
     // XX[0] part name
     if (xx[0] !== '') {
-      searchStatement = searchStatement + " WHERE m.name contains '" + xx[0]+"'"
+      searchStatement = searchStatement + " WHERE m.name contains '" + xx[0]+ "'" + " OR m.name contains '" + testString + "'"
     } 
     // xx 1 ancestry
     if (xx[1] !== 'None') {
@@ -47,17 +50,21 @@ export default function handler({query: {searchPath}}, res) {
       .run(`${searchStatement}`)
       .then(function(result){
         console.log('In success')
-        console.log('Length ' , result.records.length)
-        if (result.records.length > 1) {
-          result.records.forEach(function(record){
-              console.log('Record : ', record._fields[0].properties.name)
-              membersList.push({
-                  id: record._fields[0].properties.name,
-                  name: record._fields[0].properties.name,
-                  imageURL: record._fields[0].properties.imageURL
-              })
-          })
-        }
+        console.log('Length ' , result.records)
+
+        result.records.forEach(function(record){
+          // console.log('Record : ', record._fields[0])
+          const temp = record._fields[0]
+          // console.log('Temp ', temp)
+          if (temp !== null){
+            // console.log('Here I am what')
+            membersList.push({
+                id: record._fields[0].properties.name,
+                name: record._fields[0].properties.name,
+                imageURL: record._fields[0].properties.imageURL
+            })
+          }
+        })
         const membersData = {members: _.uniqBy(membersList, "id")}
         // console.log('Members ', membersData)
         if (membersList){

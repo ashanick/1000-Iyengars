@@ -15,7 +15,7 @@ function handler(req, res) {
         .run("MATCH (n:Member)-[k:PARENT_OF*4]->(f:Member) RETURN n order by n.name")
         .then(function(result){
             result.records.forEach(function(record){
-                console.log('Record : ', record._fields[0])
+                // console.log('Record : ', record._fields[0])
                 membersList.push({
                     id: record._fields[0].properties.name,
                     name: record._fields[0].properties.name,

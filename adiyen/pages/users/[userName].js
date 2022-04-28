@@ -1,16 +1,19 @@
 import { useRouter } from 'next/router';
 import useSWR from 'swr'
 
-// import AllUsersGraph from '../../components/overlayGraph/allusers-graph'
+import AllUsersGraph from '../../components/overlayGraph/allusers-graph'
 import IndivUser from '../../components/users/indiv-user';
-import classes from '../../styles/indivuser.module.css'
+import classes from '../../components/users/indiv-user.module.css'
+import FamilyTree from '../../components/familytree'
+import { Card } from 'material-ui-core';
+import MemoriesGrid from '../../components/memories/memories-grid';
 // import MemoriesGrid from '../../components/memories/memories-grid'
 
 const fetcher = async(url) => {
-    console.log('In fetcher')
+    // console.log('In fetcher')
     const res = await fetch(url)
     const data = await res.json()
-    console.log('In fetcher ', data)
+    // console.log('In fetcher ', data)
     if (res.status !== 200) {
         throw new Error(data.message)
     }
@@ -21,8 +24,9 @@ const fetcher = async(url) => {
 function UserDetailPage () {
     const router = useRouter()
     const userName = router.query.userName
-    console.log('Query router Aiyaa', router.query)
-    console.log('User Detail, Part 1', userName)
+    var memoryState = false
+    // console.log('Query router Aiyaa', router.query)
+    // console.log('User Detail, Part 1', userName)
     if (userName === null) {
         return (
             <div>Please send user request with correct credentials</div>
@@ -42,18 +46,23 @@ function UserDetailPage () {
 
     if (!data) {
         return (
-            <div>Why so impossible?</div>
+            <div>Please Wait Fetching Data =🤳🤳😎🙌🙌🙌🙌🙌</div>
         )
     }
 
     // console.log('After fetching Member Data', data.member.member[0].id)
-    // console.log('After fetching graph data', data.data)
+
+    console.log('After fetching graph memories', data.memories, data.memories.memories.length)
+    if (data.memories.memories.length > 0) {
+        memoryState = true
+    } 
     return (
-    <div>
-        <div>
+    <div className={classes.user__main}> 
+        <div className={classes.user}>
             {data &&
                 <div>
                     <IndivUser key={data.member.member[0].id} 
+                        id={data.member.member[0].id}
                         name={data.member.member[0].id} 
                         ecdescrition={data.member.member[0].ecdescription}
                         imageUrl={data.member.member[0].imageURL}
@@ -62,16 +71,20 @@ function UserDetailPage () {
                 </div>
             } 
         </div>
-        <div>
-                Paranoia
-        </div>
-        <div>
-            Memories
-        {/* <div>
-            { data.memories &&   
+        <div className={classes.indivuser__right}> 
+            {data && 
+            <AllUsersGraph items={data.data} />
+            }
+            <Card className={classes.user__rightband}>
+                <h4>Education</h4>
+                <h4>Profession</h4>
+                <h4>Hobbies</h4>
+            </Card>
+            <h3>Down Memory Lane</h3>
+            {memoryState && 
                 <MemoriesGrid items={data.memories} />
             }
-        </div> */}
+
         </div>
     </div>
     )

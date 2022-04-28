@@ -12,7 +12,7 @@
   
   .indivuser {
     background-color: aqua;
-    display: grid;
+    display: flex;
     grid-template-columns: 30rem auto;
     gap: 1.5rem;
     align-content: center;
