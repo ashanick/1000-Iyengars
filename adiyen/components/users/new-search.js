@@ -50,13 +50,6 @@ function NewSearch(){
 
     return (
         <div>
-            <div className={classes.topcontent}>
-            Iyengar's Network is a collection the base of which has been drawn from my extended families across Kumbakonam, Kodavasal.
-                    Mannargudi, Vaduvoor, Vazhuthoor, and Vippodu. 
-                    The hompage showcases individuals with at least 4 generations following them. 
-                    The search options can be used individually or combined for a more targeted search.
-                    <h4 style={{color: 'red', textAlign: 'center'}}>Use Connections to find links between two people</h4>
-            </div>
         <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.control}>
                 <label htmlFor="typename" className={classes.labelinput}>
@@ -129,21 +122,26 @@ function NewSearch(){
                     }
                 </select>
             </div>
-
             <div className={classes.formsubmitbutton}>
                 <Button >Find </Button>
             </div>
-            {/* <div className={classes.control}>
-                <button style={{backgroundColor: 'red'}} onClick={clearHandle}>Clear </button>
-            </div> */}
         </form>
-        <div className={classes.formresetbutton}>
-            <Button 
-                onClick={handleReset}>
-                    Reset Search
-            </Button>
-        </div>
 
+        <div className={classes.formreset}>
+            <div className={classes.formresetbutton}>
+                <Button 
+                    onClick={handleReset}>
+                        Reset Search
+                </Button>
+            </div>
+            <div><h2>OR</h2></div>
+            <div className={classes.formresetbutton}>
+                <Button 
+                    onClick={handleReset}>
+                        Search Connections Between People
+                </Button>
+            </div>
+        </div>
         </div>
     )
 }

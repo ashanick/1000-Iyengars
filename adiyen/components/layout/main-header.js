@@ -1,42 +1,45 @@
 import Link from "next/link";
 import NewSearch from "../users/new-search";
+import Image from "next/image";
 
 import classes from './main-header.module.css'
 
 function MainHeader() {
-
+    const imagePath = '/images/iyengars-logo.png'
 
     return  (
         <header className={classes.header} >
             <div className={classes.headermenu}>
-                <div className={classes.logo}>
-                    <Link href="/">1000+ Iyengars Links</Link>
-                </div>
+        
+                <Link href="/">
+                    <a>
+                        <div className={classes.image}>
+                            <Image  
+                                src={imagePath}
+                                alt="1000+ Iyengars"
+                                width={200}
+                                height={150}
+                                layout='responsive'
+                            />
+                           <p style={{color: 'white'}}>Compendium of Iyengars
+                            </p>                         
+                        </div>
+                    </a>
+                </Link>
+                
                 <nav className={classes.navigation}>
                     <ul className={classes.links}>
-                        <div style={{paddingRight: '1rem'}}>
-                        {/* <li>
-                            <Link href="/aboutus">About</Link>
+                        <li>
+                            <Link href="/clans">Clans</Link>
                         </li>
-                        </div>
-                        <div style={{paddingRight: '1rem'}}>
+
                         <li> 
                             <Link href="/contactus">Contact</Link>
-                        </li> */}
-                        </div>
-                        <div style={{paddingRight: '1rem'}}>
-                        <li> 
-                            <Link href="/search-links">Connections</Link>
                         </li>
-                        </div>
-                        <div style={{paddingRight: '1rem'}}>
-                        <li> 
-                            <Link href="/login-members">Additions</Link>
-                        </li>
-                        </div>
                     </ul>
                 </nav>
             </div>
+            
             {/* <NewSearch /> */}
         </header>
     )

@@ -3,6 +3,7 @@
     align-items: baseline;
     padding: 0 5rem;
     background-color: black;
+    color: white;
 }
 
 .footermenu {
@@ -15,7 +16,7 @@
   margin: 0.5rem;
   padding-right: 10px;
   max-width: 60rem;
-  text-align: center;
+  text-align: left;
   /* background-color: azure; */
 }
 
@@ -27,8 +28,11 @@
 
 @media (max-width: 767px) {
   .footer {
-    padding: 0;
-    width: 100%
+    padding-left: 1rem;
+    padding-top: 1rem;
+    /* padding: 0; */
+    width: 100%;
+    color: white;
   }
   .footermenu{
     display: block;
@@ -36,5 +40,11 @@
 
   .footercontentabout {
     max-width: 30rem;
+  }
+
+  .footercontentothers{
+    padding-left: 0rem;
+    padding-top: 1rem;
+    color: white;
   }
 }

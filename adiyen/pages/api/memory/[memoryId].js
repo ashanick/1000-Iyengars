@@ -35,7 +35,8 @@ export default function handler({query: {memoryId}}, res) {
                         description2: record._fields[0].properties.description2,
                         description3: record._fields[0].properties.description3,
                         title: record._fields[0].properties.title,
-                        bannerimageURL: record._fields[0].properties.bannerimageURL
+                        bannerimageURL: record._fields[0].properties.bannerimageURL,
+                        date: record._fields[0].properties.date
                     })
                 }
             })

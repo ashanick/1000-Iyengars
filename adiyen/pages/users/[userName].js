@@ -7,6 +7,7 @@ import classes from '../../components/users/indiv-user.module.css'
 import FamilyTree from '../../components/familytree'
 import { Card } from 'material-ui-core';
 import MemoriesGrid from '../../components/memories/memories-grid';
+import PhotoGrid from '../../components/memories/photo-grid';
 // import MemoriesGrid from '../../components/memories/memories-grid'
 
 const fetcher = async(url) => {
@@ -25,6 +26,7 @@ function UserDetailPage () {
     const router = useRouter()
     const userName = router.query.userName
     var memoryState = false
+    var photoState = false
     // console.log('Query router Aiyaa', router.query)
     // console.log('User Detail, Part 1', userName)
     if (userName === null) {
@@ -52,10 +54,14 @@ function UserDetailPage () {
 
     // console.log('After fetching Member Data', data.member.member[0].id)
 
-    console.log('After fetching graph memories', data.memories, data.memories.memories.length)
+    console.log('After fetching graph Photo Gallery', data.photoGallery.photoList.length)
     if (data.memories.memories.length > 0) {
         memoryState = true
     } 
+    if (data.photoGallery.photoList.length){
+        photoState = true
+    }
+
     return (
     <div className={classes.user__main}> 
         <div className={classes.user}>
@@ -75,16 +81,23 @@ function UserDetailPage () {
             {data && 
             <AllUsersGraph items={data.data} />
             }
+            {/* <FamilyTree /> */}
             <Card className={classes.user__rightband}>
                 <h4>Education</h4>
                 <h4>Profession</h4>
                 <h4>Hobbies</h4>
             </Card>
-            <h3>Down Memory Lane</h3>
-            {memoryState && 
-                <MemoriesGrid items={data.memories} />
+            
+            {/* {memoryState && 
+                <div> */}
+                    <h2>Down Memory Lane</h2>
+                    <MemoriesGrid items={data.memories} />
+                {/* </div> */}
+            {/* } */}
+            <h2>Photo Gallery</h2>
+            { photoState &&
+                <PhotoGrid items={data.photoGallery} />
             }
-
         </div>
     </div>
     )

@@ -15,7 +15,7 @@
         {"id": "c13", "name": "Kumbakonam", "country": "India", "aVillage": "true"},
         {"id": "c14", "name": "London", "country": "England", "aVillage": "false"},
         {"id": "c15", "name": "Los Angeles", "country": "USA", "aVillage": "false"},
-        {"id": "c16", "name": "Mannargudi", "country": "India", "aVillage": "true"},
+        {"id": "c16", "name": "Mannargudi", "country": "India", "aVillage": "true", "imageURL": "images/Mannargudi.jpg"},
         {"id": "c17", "name": "Moorestown", "country": "USA", "aVillage": "false"},
         {"id": "c18", "name": "Mumbai", "country": "India", "aVillage": "false"},
         {"id": "c13", "name": "Vayuthur", "country": "India", "aVillage": "true"},

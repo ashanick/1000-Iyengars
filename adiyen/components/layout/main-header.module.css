@@ -1,58 +1,81 @@
 .header {
-    width: 100%;
-    align-items: baseline;
-    padding: 0 10%;
-    background-color: black;
-    /* height: 7rem; */
-    /* background-color: green; */
-  }
+  width: 100%;
+  align-items: baseline;
+  padding: 0 10%;
+  background-color: black;
+  height: 5.5rem;
+  /* background-color: green; */
+}
 
-  .headermenu{
-    display: flex;
-    justify-content: space-between; 
-  }
+/* Header Menu is the main flex container */
+.headermenu{
+  display: flex;
+  justify-content: space-between; 
+  flex-flow: row-wrap;
+  gap: 2rem;
+}
 
-  .links {
-    display: flex;
-    justify-content: space-between;
-  }
+.links {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
+.image {
+  width: 100%;
+  height: auto;
+  /* display: block; */
+  /* padding: 1rem; */
+  max-width: 7rem;
+  max-height: 6.5rem;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position:center;
+}
+
+.logo {
+  font-size: 1rem;
+  color: white;
+  font-family: 'Fira', sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-top: 1rem;;
+}
+
+.logo a {
+  text-decoration: none;
+  color: red;
+}
+
+.navigation a {
+  text-decoration: none;
+  color:red;
+  font-size: 1.25rem;
+  padding-right: 1rem;
+}
+
+
+@media (min-width: 768px) {
   .logo {
-    font-size: 1rem;
-    color: white;
-    font-family: 'Fira', sans-serif;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    margin-top: 1rem;;
+    font-size: 1.5rem;
   }
-  
-  .logo a {
-    text-decoration: none;
-    color: red;
-  }
-  
   .navigation a {
-    text-decoration: none;
-    color:red;
-    font-size: 1rem;
-    margin-right: 25px;
+    font-size: 2rem;
   }
-  
-  @media (max-width: 767px) {
-    .header {
-      padding: 0 2rem;
-    }
-  
-  }
+}
 
-  @media (min-width: 768px) {
-    .logo {
-      font-size: 1.5rem;
-    }
-    .navigation a {
-      font-size: 2rem;
-    }
+@media (max-width: 768px) {
+  .links {
+    padding-right: 2rem;
+    margin-right: 2rem;
   }
+}

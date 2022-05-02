@@ -13,6 +13,7 @@ export default function handler({query: {userName}}, res) {
     var userNodes = []
     var userLinks = []
     var memberDetail = []
+    var photoList = []
     var children = []
     var grandChildren = []
     var greatGrandChildren = []
@@ -35,10 +36,11 @@ export default function handler({query: {userName}}, res) {
     
     session
     .run(`OPTIONAL MATCH pathmem = (b:Member {name: '${userName}'}) - [r:MEMORY_OWN] ->(o:Memories) 
+        OPTIONAL MATCH pathphoto = (a:Member {name: '${userName}'}) - [w:PHOTO_OWN] ->(q:PhotoGallery)
         OPTIONAL MATCH (m:Member {name: '${userName}'}) 
         OPTIONAL MATCH path=(n:Member {name: '${userName}'})-[:PARENT_OF*1..5]-(p) 
-        WITH pathmem, r, m, n, path, range(0,length(path)-1) as index  
-        Return m, n, path, [i in index | CASE WHEN nodes(path)[i] = startNode(RELATIONSHIPS(path)[i]) THEN 'incoming' ELSE 'outgoing' END ] as directions, pathmem, r`)    
+        WITH pathmem, pathphoto, q, r, w, m, n, path, range(0,length(path)-1) as index  
+        Return m, n, path, [i in index | CASE WHEN nodes(path)[i] = startNode(RELATIONSHIPS(path)[i]) THEN 'incoming' ELSE 'outgoing' END ] as directions, pathmem, r, pathphoto, w, q`)    
     .then(function(result){
             console.log('Got it Records')
 
@@ -59,9 +61,17 @@ export default function handler({query: {userName}}, res) {
                             })
                         }
                     }
-                    // if (record._fields[5]) {
-                    //     console.log('Field 5 ', record._fields[5])
-                    // }
+
+                    if (record._fields[6]) {
+                        if (record._fields[6] !== null && record._fields[7].type ===  "PHOTO_OWN") {
+                            // console.log('Field 7 Photo ', record._fields[7], 'end', record._fields[8].properties)
+                            photoList.push({
+                                imageURL: record._fields[8].properties.imageURL,
+                                pdate: record._fields[8].properties.pdate,
+                                id: record._fields[8].properties.id,
+                            })
+                        }
+                    }
 
                     if ( firstNode){
                         firstNode = false
@@ -240,6 +250,7 @@ export default function handler({query: {userName}}, res) {
             }
 
             const memories = {memories: _.uniqBy(memoriesList, "title")}
+            const photoGallery = {photoList: _.uniqBy(photoList, "id")}
             // console.log('Children ', children, grandChildren, 'GrandChildren : ')
             // console.log('Parent : ', parents, 'Grandparent ', grandParent)
             // console.log('Siblings ', siblings)
@@ -248,7 +259,7 @@ export default function handler({query: {userName}}, res) {
             if (firstNode) {
                 res.status(201).json({message: "Opps Not Found"})
             } else {
-                res.json({data: data, member: member, memories: memories})
+                res.json({data: data, member: member, memories: memories, photoGallery: photoGallery})
             }
         }) .catch(function(error){
             console.log("Hey airaaa", error);

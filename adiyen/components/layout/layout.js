@@ -15,7 +15,7 @@ function Layout(props) {
       <NewSearch />
       <hr style={{border: '1px solid red'}}/>
       {/* <Hero /> */}
-      <main style={{margin: '1rem 5rem'}}>{props.children}</main>
+      <main style={{margin: '1rem 1rem'}}>{props.children}</main>
       <hr style={{border: '1px solid red'}}/>
       <FooterPage />
     </div>

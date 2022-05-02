@@ -12,6 +12,7 @@ function UsersGrid(props) {
     }
     return (
         <ul className={classes.users}>
+            {/* <li>testing this whole shit and wondering why it is not wrapping up</li> */}
             {members.map(member => 
                 <GridItem
                     key= {member.id}

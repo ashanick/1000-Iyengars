@@ -88,8 +88,8 @@ function IndivUser(props) {
                             <Image
                             src={'/' + pImageURL}
                             alt={pname}
-                            width={300}
-                            height={300}
+                            width={250}
+                            height={250}
                             layout='responsive'
                             />
                         </div>

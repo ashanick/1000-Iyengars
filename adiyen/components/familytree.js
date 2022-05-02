@@ -56,7 +56,9 @@ function FamilyTree(props) {
 //   console.log('Family Tree ', props.items)
   return <div style={{ background: 'red'}}>
      <div  style={{  width: '50em', height: '20em' }}>
-      <Tree  data={orgChart} />
+      <Tree  
+        data={orgChart} 
+        orientation={"vertical"}/>
     </div>
   </div>;
 };

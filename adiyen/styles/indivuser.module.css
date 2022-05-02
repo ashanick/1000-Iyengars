@@ -17,3 +17,13 @@
     gap: 1.5rem;
     align-content: center;
   }
+
+  .users__grid{
+    margin: 0;
+  }
+
+@media (max-width: 767px) {
+  .users__grid{
+    margin: 0 4rem;
+  }
+}
