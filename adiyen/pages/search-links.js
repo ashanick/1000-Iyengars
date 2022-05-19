@@ -1,14 +1,18 @@
-import ConnectUsers from "../components/users/connect-users"
+import { useRouter } from "next/router";
+import SearchForm from "../components/searches/search-form"
 
 function SearchLinks(){
-    function connectUsersHandler(user1, user2) {
-        console.log('User1: ', user1, ', User2 : ', user2)
+    var router = useRouter()
+    
+    function getvalues(e){
+        const searchPath = `/linksUser1/${e}`
+        console.log('Search Links In Search Links Pages function get values', searchPath)   
+        router.push(searchPath)
     }
 
     return (
         <div>
-            <ConnectUsers onSearch={connectUsersHandler} />
-            Helllo my babies
+            <SearchForm type="connections" returnHandler={(e)=>getvalues(e)}/>
         </div>
     )
 }

@@ -11,14 +11,15 @@
         {"id": "c9", "name": "Dubai", "country": "Emirates", "aVillage": "false"},
         {"id": "c10", "name": "Edinborough", "country": "England", "aVillage": "false"},
         {"id": "c11", "name": "Hartford", "country": "USA", "aVillage": "false"},
-        {"id": "c12", "name": "Kodavasal", "country": "India", "aVillage": "true"},
-        {"id": "c13", "name": "Kumbakonam", "country": "India", "aVillage": "true"},
+        {"id": "c12", "name": "Kodavasal", "country": "India", "aVillage": "true", "imageURL": "images/RathaBandham.jpg"},
+        {"id": "c13", "name": "Kumbakonam", "country": "India", "aVillage": "true", "imageURL": "images/RathaBandham.jpg"},
         {"id": "c14", "name": "London", "country": "England", "aVillage": "false"},
         {"id": "c15", "name": "Los Angeles", "country": "USA", "aVillage": "false"},
         {"id": "c16", "name": "Mannargudi", "country": "India", "aVillage": "true", "imageURL": "images/Mannargudi.jpg"},
         {"id": "c17", "name": "Moorestown", "country": "USA", "aVillage": "false"},
         {"id": "c18", "name": "Mumbai", "country": "India", "aVillage": "false"},
-        {"id": "c13", "name": "Vayuthur", "country": "India", "aVillage": "true"},
-        {"id": "c13", "name": "Vippodu", "country": "India", "aVillage": "true"}
+        {"id": "c19", "name": "Vaduvoor", "country": "India", "aVillage": "true", "imageURL": "images/Mannargudi.jpg"},
+        {"id": "c20", "name": "Vayuthur", "country": "India", "aVillage": "true", "imageURL": "images/Mannargudi.jpg"},
+        {"id": "c21", "name": "Vippodu", "country": "India", "aVillage": "true", "imageURL": "images/Mannargudi.jpg"}
     ]
 }

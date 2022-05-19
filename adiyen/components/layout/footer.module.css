@@ -4,6 +4,7 @@
     padding: 0 5rem;
     background-color: black;
     color: white;
+    padding-bottom: 2rem;;
 }
 
 .footermenu {
@@ -24,6 +25,27 @@
   margin: 0.5rem;
   padding-left: 5rem;
   /* max-width: 28rem; */
+}
+
+.fcopy{
+  width: 100%;
+  text-align: center;
+}
+.icons__main{
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+}
+
+.icons_images{
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  margin: 0 1rem;
+}
+
+.image__icon{
+  width: auto;
 }
 
 @media (max-width: 767px) {
@@ -47,4 +69,14 @@
     padding-top: 1rem;
     color: white;
   }
+
+  .icons_images{
+    justify-content: center;
+    margin: 0 0.5rem;
+    /* background-color: aqua; */
+}
+
+.icons__main{
+    margin: 0;
+}
 }

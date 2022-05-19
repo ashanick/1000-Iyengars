@@ -1,5 +1,6 @@
 import Head from "next/head"
 import HomePageComponent from "../components/homepage"
+import NewSearch from "../components/users/new-search"
 // import useSWR from "swr"
 // import UsersGrid from "../components/users/users-grid"
 // const fetcher = async(url) => {
@@ -31,6 +32,8 @@ function HomePage(){
                     name="description" 
                     content="Find and connect with the greater Iyengars and their extended families" />
             </Head>
+            <NewSearch type = "common"/>
+      <hr style={{border: '1px solid red'}}/>
             <HomePageComponent />
 
             {/* <UsersGrid items={data.membersData} /> */}

@@ -6,22 +6,17 @@
     text-align: center;
 }
 
-.main__class__bottom{
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem 6rem;
-    max-width: 160rem;
-    grid-gap: 0.5rem;
-}
+
 
 .main__av{
-    margin: 1rem 6rem;
-    max-width: 160rem; 
-    color: green   
+    margin: 1rem 0; 
 }
 
-.main_av h3{
+.main_av__header{
     text-align: center;
+}
+
+.main_av__header h3{
     color: blue;
 }
 
@@ -42,14 +37,19 @@
     margin-bottom: 1rem;
 }
 
+.main__center li {
+    text-align: left;
+}
 .main__left h3{
     margin: 1rem;
     color: red;
 }
 
 .main__center p{
-    margin-top: 1rem;;
+    margin-top: 1rem;
+    text-align: left;
 }
+
 
 .main__right{
     width: 50rem;
@@ -62,17 +62,28 @@
     margin-top: 0.5rem;;
 }
 
+.icons__main{
+    display: flex;
+    margin: 1rem;
+    justify-content: center;
+}
+
 .icons_images{
     width: 5rem;
     height: 5rem;
     overflow: hidden;
+    margin: 0 1rem;
 }
 
 .image {
-    width: 20rem;
-    height: 20rem;
+    width: auto;
+    height: auto;
     /* max-height: 50rem; */
     overflow: hidden;
+}
+
+.image__icon{
+    width: auto;
 }
   
 .image img {
@@ -81,45 +92,21 @@
   width: 100%;
   height: 100%;
 }
-.bottom__content{
-    width: 28rem;
-    max-width: 28rem;
-    border: 1px solid red;
-    padding-bottom: 1rem;
-    align-content: center;
-    /* margin: 0 1rem; */
-    /* padding: 0.5rem; */
-}
-
-.bottom__content h3{
-    text-align: center;
-    color: red
-}
 
 .main__center h3{
     text-align: center;
     color: red
 }
 
-.bottom__content p{
-    margin: 0 1rem;
-}
-
 .main__center p {
     margin: 0 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
     .main__class{
         display:block;
         margin: 0
-    }
-
-    .main__class__bottom{
-        margin: 0;
-        display:block;
-        padding: 0;
     }
 
     .image{
@@ -145,10 +132,14 @@
         padding: 0;
     }
 
-    .bottom__content{
-        margin: 0;
-        padding: 0
+
+    .icons_images{
+        justify-content: center;
+        margin: 0 0.5rem;
+        /* background-color: aqua; */
     }
 
-    
+    .icons__main{
+        margin: 0;
+    }
 }

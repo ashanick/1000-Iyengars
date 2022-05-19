@@ -1,13 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link';
-
 import classes from './grid-item.module.css'
 
 function GridItem(props) {
-    const {id, name, imageURL} = props
+    const {id, name, imageURL, listType, user1} = props
+
     const imagePath=`/${imageURL}`
     // console.log('Grid Item : ', props)
-    const linkPath = `/users/${name}`
+
+    var linkPath = `/users/${name}`
+    if (listType === 'connections'){
+        linkPath = `/linksUser2/${name}`
+    }
+    if (listType === 'user2'){
+        linkPath = `/search-connections/${user1}+${name}`
+    }
+
     return (
         <li className={classes.grid}>
             <Link href={linkPath}>

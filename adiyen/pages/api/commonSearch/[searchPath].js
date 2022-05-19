@@ -50,7 +50,7 @@ export default function handler({query: {searchPath}}, res) {
       .run(`${searchStatement}`)
       .then(function(result){
         console.log('In success')
-        console.log('Length ' , result.records)
+        // console.log('Length ' , result.records)
 
         result.records.forEach(function(record){
           // console.log('Record : ', record._fields[0])

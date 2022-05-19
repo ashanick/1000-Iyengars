@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import AllUsersGraph from '../../components/overlayGraph/allusers-graph'
 import IndivUser from '../../components/users/indiv-user';
 import classes from '../../components/users/indiv-user.module.css'
-import FamilyTree from '../../components/familytree'
+// import FamilyTree from '../../components/familytree'
 import { Card } from 'material-ui-core';
 import MemoriesGrid from '../../components/memories/memories-grid';
 import PhotoGrid from '../../components/memories/photo-grid';

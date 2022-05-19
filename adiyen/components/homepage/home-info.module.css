@@ -1,0 +1,129 @@
+.color2{
+    background-color: gainsboro;
+    padding: 2rem 0;
+}
+
+.main__class__bottom{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 6rem;
+    grid-gap: 1rem;
+    border: 1px solid blue;;
+}
+
+.color2 h2{
+    color: red;
+    text-align: center;
+}
+
+.bottom__detail{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    text-align: center;
+    align-self: center;
+    width: 18rem;
+}
+
+.bottom__image {
+    width: 17rem;;
+    height: 17rem;
+    align-content: center;
+    overflow: hidden;
+    align-items: center;
+    border: 2px solid red;
+}
+
+.bottom__image p{
+    margin: 0 1rem;
+    padding-bottom: 0.5rem;;
+}
+
+.bottom__content{
+    border: 1px solid green;
+    width: 78rem;
+    text-align: center;
+}
+
+.bottom__content h3{
+    color:green
+}
+
+.bottom__left__parts{
+    display: flex;
+    flex-wrap: wrap;
+    width:auto;
+}
+
+.bottom__content__right{
+    width: 35rem;
+    border: 1px solid red;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.bottom__content__right h3{
+    text-align: center;
+    color: red
+}
+
+.bottom__content__right h4{
+    margin: 0;
+    color: blue;
+}
+
+.bottom__content__right p{
+    margin-left: 1rem;
+}
+
+.bottom__indiv__content{
+    width: 22rem;
+    align-content: center;
+    /* margin: 1rem; */
+}
+
+.bottom__indiv__content ul{
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .main__class__bottom{
+        margin: 0;
+        display:block;
+        padding: 0;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        align-self: center;
+    }
+
+    .bottom__content{
+        margin: 0;
+        padding: 0;
+        width: 28rem;
+        align-items: center;
+        align-content: center;
+    }
+
+    .bottom__content__right{
+        width: 28rem;
+    }
+
+    .bottom__detail{
+        align-content: center;
+        width: 25rem;
+    }
+
+    .bottom__image{
+        width: 25rem;
+        height: 25rem;
+        /* margin-bottom: 0.5rem;; */
+    }
+
+    .bottom__left__parts{
+        margin: 0 ;
+    }
+}

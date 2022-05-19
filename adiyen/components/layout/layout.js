@@ -12,8 +12,8 @@ function Layout(props) {
     <div >
       {/* <Nav /> */}
       <MainHeader />
-      <NewSearch />
-      <hr style={{border: '1px solid red'}}/>
+      {/* <NewSearch />
+      <hr style={{border: '1px solid red'}}/> */}
       {/* <Hero /> */}
       <main style={{margin: '1rem 1rem'}}>{props.children}</main>
       <hr style={{border: '1px solid red'}}/>

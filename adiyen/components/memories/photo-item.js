@@ -7,6 +7,7 @@ function PhotoItem(props) {
     const imagePath = `/${imageURL}`
     return (
         <li className={classes.post}>
+            <h3>{title}</h3>
             <div className={classes.image}>
                 <Image 
                     src={imagePath}

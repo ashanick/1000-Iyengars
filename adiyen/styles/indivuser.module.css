@@ -22,6 +22,13 @@
     margin: 0;
   }
 
+  .user__main {
+    /* margin: 1rem; */
+    display:flex;
+    flex-wrap: wrap;
+    grid-gap: 1rem;
+  }
+
 @media (max-width: 767px) {
   .users__grid{
     margin: 0 4rem;

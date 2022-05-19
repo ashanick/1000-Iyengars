@@ -44,6 +44,11 @@
     line-height: var(--size-6);
   }
 
+  .showButtonDetails{
+    align-items: center;
+    margin-bottom: 0.5rem;  
+  }
+
   @media (max-width: 768px) {
     .grid {
       min-width: 13rem;

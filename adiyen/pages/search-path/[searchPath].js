@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
 import useSWR from 'swr'
 import UsersGrid from '../../components/users/users-grid'
+import classes from '../../styles/indivuser.module.css'
 
 const fetcher = async(url) => {
-    console.log('Search In fetcher')
+    console.log('Common Search In fetcher', url)
     const res = await fetch(url)
     const data = await res.json()
-    console.log('In fetcher City Name', data)
+    console.log('In fetcher Common Search', data)
     if (res.status !== 200) {
         throw new Error(data.message)
     }
@@ -52,9 +53,12 @@ function SearchAll (){
     return (
         <div>
             {/* <h1>Common Search</h1> */}
-            {members && 
-                <UsersGrid items={members.membersData} />
-            }
+            <div className={classes.users__grid}>
+                {members && 
+                    <UsersGrid  
+                        items={members.membersData} />
+                }
+            </div>
         </div>
     )
 }

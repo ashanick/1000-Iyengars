@@ -2,6 +2,7 @@ import Head from "next/head"
 import useSWR from "swr"
 import UsersGrid from "../components/users/users-grid"
 import classes from '../styles/indivuser.module.css'
+import NewSearch from "../components/users/new-search"
 // import Hero from "../components/homepage/hero"
 
 const fetcher = async(url) => {
@@ -22,7 +23,11 @@ function ClansPage(){
     )
     
     if (!data) {
-        return <div>Error .. Please try again</div>
+        return <div>Please wait loading .... =😎😎  😘😘😘   ✔️✔️✔️</div>
+    }
+
+    if (error){
+        return <div>Apologies Error 😢😢😢😢😢😢 Please try again</div>
     }
     console.log('=🤳🤳🤳', data, error)
     return (
@@ -33,6 +38,8 @@ function ClansPage(){
                     name="description" 
                     content="Find and connect with the greater Iyengars and their extended families" />
             </Head>
+            <NewSearch />
+             <hr style={{border: '1px solid red'}}/>
             <div className={classes.users__grid}>
                 <UsersGrid items={data.membersData} />
             </div>

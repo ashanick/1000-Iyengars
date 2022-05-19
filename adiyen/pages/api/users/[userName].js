@@ -69,6 +69,7 @@ export default function handler({query: {userName}}, res) {
                                 imageURL: record._fields[8].properties.imageURL,
                                 pdate: record._fields[8].properties.pdate,
                                 id: record._fields[8].properties.id,
+                                title: record._fields[8].properties.title
                             })
                         }
                     }
@@ -253,7 +254,7 @@ export default function handler({query: {userName}}, res) {
             const photoGallery = {photoList: _.uniqBy(photoList, "id")}
             // console.log('Children ', children, grandChildren, 'GrandChildren : ')
             // console.log('Parent : ', parents, 'Grandparent ', grandParent)
-            // console.log('Siblings ', siblings)
+            console.log('Siblings ', siblings)
             // console.log('Memories : ', memories)
             console.log('En Fin With Individual User: 🙌🙌🙌🙌💥💥💥💥💥💥😎😎😎😎😎 ')
             if (firstNode) {

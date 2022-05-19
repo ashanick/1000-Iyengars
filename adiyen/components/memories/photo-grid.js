@@ -3,7 +3,7 @@ import PhotoItem from './photo-item'
 
 function PhotoGrid (props) {
     const {photoList} = props.items
-    console.log('In Photo Grid: ' , props)
+    console.log('In Photo Grid: See ' , props)
 
     if (!photoList) {
         return(

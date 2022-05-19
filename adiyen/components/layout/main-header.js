@@ -5,7 +5,7 @@ import Image from "next/image";
 import classes from './main-header.module.css'
 
 function MainHeader() {
-    const imagePath = '/images/iyengars-logo.png'
+    const imagePath = '/images/Iyengars logo.png'
 
     return  (
         <header className={classes.header} >
@@ -32,9 +32,12 @@ function MainHeader() {
                         <li>
                             <Link href="/clans">Clans</Link>
                         </li>
+                        <li>
+                            <Link href="/search-links">Links</Link>
+                        </li>
 
                         <li> 
-                            <Link href="/contactus">Contact</Link>
+                            <Link href="/aboutus">Contact</Link>
                         </li>
                     </ul>
                 </nav>

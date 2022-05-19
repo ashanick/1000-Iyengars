@@ -36,6 +36,7 @@
 
 .user {
   /* border: 1px solid green; */
+  margin: 0 3rem;
   justify-content: left;
   width: 26rem;
 }
@@ -132,4 +133,7 @@
     padding: 0;
   } 
 
+  .user{
+    margin: 0 1rem;
+  }
 }

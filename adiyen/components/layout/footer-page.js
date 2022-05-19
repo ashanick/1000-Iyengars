@@ -1,23 +1,33 @@
 import classes from './footer.module.css'
+import Image from 'next/image';
 
 function FooterPage (){
     return (
         <footer className={classes.footer}>
-            <div className={classes.footermenu}>
+             <div className={classes.footermenu}> 
                 <div className={classes.footercontentabout}>
-                    <h2>Inspiration behind 1000+ Iyengars</h2>
-                    Iyengar's Network is a collection the base of which has been drawn from my extended families across Kumbakonam, Kodavasal.
-                    Mannargudi, Vaduvoor, Vazhuthoor, and Vippodu.
-                    The hompage showcases individuals with at least 4 generations following them. 
-                    The search options can be used individually or combined for a more targeted search.
-                </div>
-                <div className={classes.footercontentothers}>
-                    <h2>Important Facts</h2>
+                    <h2>Acknowledgements</h2>
+                    <hr style={{border: '1px solid red'}}/>
                     <ul>
-                        <li>Member privacy maintained as requested.</li>
-                        <li>Do reach out to add, change, or remove details about members.</li>
+                        <li>Kodavasal Family Tree, Mrs. Kumuda and Mr. Seshadri Sreenivasan</li>
+                        <li>Kumbakonam C.L.Rangaswami Family Tree, Kuppuswamy</li>
+                        <li>R.S.Kuppuswamy Family Stories, Babchi Vaidehi</li>
+                        <li>Vazhyutoor Dikshitar Vamsa from 1700</li>
                     </ul>
                 </div>
+                <div className={classes.footercontentothers}>
+                    <h3>More Info</h3>
+                    <hr style={{border: '1px solid red'}}/>
+                    <ul>
+                        <li>How to contribute</li>
+                        <li>About Us</li>
+                        <li>Contact Us</li>
+                    </ul> 
+                </div>
+            </div>
+            <div className={classes.fcopy}> 
+                Copyrights Reserved @Asha Sundararajan
+                {/* <hr style={{border: '1px solid red'}}/> */}
             </div>
         </footer>
     )
