@@ -1,9 +1,16 @@
 .form {
     /* background-color: grey; */
-    display:flex;
+    /* display:flex; */
     width: auto;
     margin: 1rem 6rem;
     padding:0
+}
+
+.wrap__search{
+  display: flex;
+  grid-gap: 1rem;
+  justify-content: center;
+  width:auto;
 }
 
 .formreset{
@@ -35,12 +42,46 @@
 }
 
 .formsubmitbutton{
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  /* background-color: aqua; */
 }
 
 .formresetbutton{
   align-content: center;
+  /* background-color: green; */
   /* margin-left: 5rem; */
+}
+
+.labelinput h3 {
+  color: red;
+}
+
+.main__query{
+  border: 1px solid hotpink;
+  text-align: center;
+  margin: 1rem 0;
+  width: auto;
+}
+
+.main__query h3{
+  color: red;
+  padding-bottom: 0.5rem;
+}
+
+.main__querytext{
+  text-align: center;
+  /* margin: 1rem 1rem; */
+  align-content: center;
+}
+
+.main__querytext h3{
+  color: red;
+  text-align: center;
+}
+
+.main__query__club{
+  display: flex;
 }
 
 @media (min-width: 768px) {
@@ -71,7 +112,7 @@
   }
 
   .formsubmitbutton{
-    margin: 0.5rem 0 0 7rem ;
+    margin: 0.5rem 0 1rem 2rem ;
     align-content: center;
     align-self: center;
   }
@@ -84,5 +125,17 @@
   
   .control {
     align-items: center;
+    max-width: 25rem;
+    width: auto;
+  }
+
+  .main__query__club{
+    display:block;
+  }
+
+  .wrap__search{
+    display: block;
+    max-width: 20rem;
+    width: 20rem;
   }
 }

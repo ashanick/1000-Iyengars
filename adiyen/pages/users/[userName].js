@@ -1,14 +1,14 @@
 import { useRouter } from 'next/router';
 import useSWR from 'swr'
+import Head from "next/head"
 
 import AllUsersGraph from '../../components/overlayGraph/allusers-graph'
 import IndivUser from '../../components/users/indiv-user';
 import classes from '../../components/users/indiv-user.module.css'
 // import FamilyTree from '../../components/familytree'
-import { Card } from 'material-ui-core';
 import MemoriesGrid from '../../components/memories/memories-grid';
 import PhotoGrid from '../../components/memories/photo-grid';
-// import MemoriesGrid from '../../components/memories/memories-grid'
+import NewSearch from '../../components/users/new-search';
 
 const fetcher = async(url) => {
     // console.log('In fetcher')
@@ -48,13 +48,14 @@ function UserDetailPage () {
 
     if (!data) {
         return (
-            <div>Please Wait Fetching Data =🤳🤳😎🙌🙌🙌🙌🙌</div>
+            <div>Please Wait Fetching Data =🤳🤳 ... Free Database 😎 ... And Large ... 🙌🙌🙌🙌</div>
         )
     }
 
     // console.log('After fetching Member Data', data.member.member[0].id)
 
     console.log('After fetching graph Photo Gallery', data.photoGallery.photoList.length)
+    console.log('Details : ', data.member.member)
     if (data.memories.memories.length > 0) {
         memoryState = true
     } 
@@ -63,43 +64,64 @@ function UserDetailPage () {
     }
 
     return (
-    <div className={classes.user__main}> 
-        <div className={classes.user}>
-            {data &&
-                <div>
-                    <IndivUser key={data.member.member[0].id} 
-                        id={data.member.member[0].id}
-                        name={data.member.member[0].id} 
-                        ecdescrition={data.member.member[0].ecdescription}
-                        imageUrl={data.member.member[0].imageURL}
-                        items={data.member}
-                        />
+        <div>
+            <Head>
+                <title>Iyengars</title>
+                <meta 
+                    name="description" 
+                    content="Find and connect with the greater Iyengars and their extended families" />
+            </Head>
+            <NewSearch />
+             <hr style={{border: '1px solid red'}}/>
+            <div className={classes.user__main}> 
+                <div className={classes.user}>
+                    {data &&
+                        <div>
+                            <IndivUser key={data.member.member[0].id} 
+                                id={data.member.member[0].id}
+                                name={data.member.member[0].id} 
+                                ecdescrition={data.member.member[0].ecdescription}
+                                imageUrl={data.member.member[0].imageURL}
+                                items={data.member}
+                                spouse={data.member.member[0].spouse}
+                                />
+                        </div>
+                    } 
                 </div>
-            } 
+                <div className={classes.indivuser__right}> 
+                    {data && 
+                    <AllUsersGraph items={data.data} />
+                    }
+                    {/* <FamilyTree /> */}
+                    <div className={classes.user__rightband}>
+                        <h4>Education: {data.member.member[0].education}</h4>
+                    </div>
+                    <div className={classes.user__rightband}>
+                        <h4>Profession</h4>
+                        <h4>Hobbies</h4>
+                    </div>
+                    <div className={classes.user__description}>
+                        <h3>Early Description</h3>
+                        {data.member.member[0].earlydescription}
+                    </div>
+                    <div className={classes.user__description}>
+                        <h3>Adult Description</h3>
+                        {data.member.member[0].adultdescription}
+                    </div>
+                    
+                    {/* {memoryState && 
+                        <div> */}
+                            <h2>Down Memory Lane</h2>
+                            <MemoriesGrid items={data.memories} />
+                        {/* </div> */}
+                    {/* } */}
+                    <h2>Photo Gallery</h2>
+                    { photoState &&
+                        <PhotoGrid items={data.photoGallery} />
+                    }
+                </div>
+            </div>
         </div>
-        <div className={classes.indivuser__right}> 
-            {data && 
-            <AllUsersGraph items={data.data} />
-            }
-            {/* <FamilyTree /> */}
-            <Card className={classes.user__rightband}>
-                <h4>Education</h4>
-                <h4>Profession</h4>
-                <h4>Hobbies</h4>
-            </Card>
-            
-            {/* {memoryState && 
-                <div> */}
-                    <h2>Down Memory Lane</h2>
-                    <MemoriesGrid items={data.memories} />
-                {/* </div> */}
-            {/* } */}
-            <h2>Photo Gallery</h2>
-            { photoState &&
-                <PhotoGrid items={data.photoGallery} />
-            }
-        </div>
-    </div>
     )
 
 }

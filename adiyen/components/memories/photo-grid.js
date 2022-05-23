@@ -17,7 +17,7 @@ function PhotoGrid (props) {
         <ul className={classes.grid}>
             {
                 photoList.map((p)=>(
-                    <PhotoItem items={p} key={p.id} />
+                    <PhotoItem items={p} key={p.title} />
                 ))
             }
         </ul>

@@ -14,7 +14,8 @@ function PhotoItem(props) {
                     alt={title}
                     width={300}
                     height={300}
-                    Layout='responsive'
+                    layout='responsive'
+                    placeholder='empty'
                 />
             </div>
         </li>

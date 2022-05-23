@@ -98,14 +98,27 @@
 
 .user__rightband {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 1rem;
-  padding: 0 2rem;
+  grid-gap: 2rem;
+  /* padding: 0 2rem; */
   /* border: 1px solid red; */
 }
 
+.user__description{
+  margin: 1rem;
+}
+
+.user__description h3{
+  color: red;
+}
 .indivuser__right h2 {
   text-align: center;
+}
+
+.dateDetails{
+  width: 25rem;
+  display: flex;
 }
 
 @media (max-width: 768px) {
@@ -129,7 +142,7 @@
 
   .indivuser__right{
     width: 26rem;
-    margin: 0;
+    margin: 0 1rem;
     padding: 0;
   } 
 

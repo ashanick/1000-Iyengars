@@ -1,0 +1,11 @@
+.maintop{
+    text-align: center;
+}
+
+.maintop h3{
+    color: red;
+}
+
+.maintop__links{
+    text-align: left;
+}

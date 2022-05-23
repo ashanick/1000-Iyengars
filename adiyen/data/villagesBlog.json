@@ -6,7 +6,7 @@
             "blogDate": "May 2022",
             "photoList": [
                 {"pid": "pid11", "imageURL": "images/RathaBandham.jpg", "title": "Ahs1"},
-                {"pid": "pid11", "imageURL": "images/RathaBandham.jpg", "title": "Ahs2"}
+                {"pid": "pid12", "imageURL": "images/RathaBandham.jpg", "title": "Ahs2"}
              ]
         },
         {"id": "b2", "name": "Kumbakonam", "title": "Asha's visit", 

@@ -1,8 +1,0 @@
-{
-  "..\\components\\overlayGraph\\allusers-graph.js -> ../../lib/NoSSRForceGraph": {
-    "id": "..\\components\\overlayGraph\\allusers-graph.js -> ../../lib/NoSSRForceGraph",
-    "files": [
-      "static/chunks/lib_NoSSRForceGraph_js.js"
-    ]
-  }
-}

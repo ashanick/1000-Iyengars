@@ -27,6 +27,7 @@ function GridItem(props) {
                             width={150}
                             height={150}
                             layout='responsive'
+                            placeholder='empty'
                             />
                     </div>
                     <div className={classes.content}>

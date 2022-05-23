@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import SearchForm from "../components/searches/search-form"
+import SearchTop from "../components/searches/search-top";
 
 function SearchLinks(){
     var router = useRouter()
@@ -12,6 +13,7 @@ function SearchLinks(){
 
     return (
         <div>
+            <SearchTop />
             <SearchForm type="connections" returnHandler={(e)=>getvalues(e)}/>
         </div>
     )

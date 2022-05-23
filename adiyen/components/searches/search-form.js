@@ -4,6 +4,8 @@ import classes from '../users/new-search.module.css'
 import Button from '../ui/button'
 import citiesData from '../../data/cities.json'
 import educationData from '../../data/education.json'
+import professionData from '../../data/professionData.json'
+import ButtonLarge from "../ui/button-large";
 
 function SearchForm(props) {
 
@@ -32,12 +34,24 @@ function SearchForm(props) {
         event.preventDefault()
         const partName = inputRef.current.value
         const strLength = inputRef.current.value.length
-        const citySelected = cityInputRef.current.value
-        const ancestry = ancestryInputRef.current.value
-        const profession = professionInputRef.current.value
-        const education = educationInputRef.current.value
+        var citySelected = cityInputRef.current.value
+        var ancestry = ancestryInputRef.current.value
+        var profession = professionInputRef.current.value
+        var education = educationInputRef.current.value
 
         console.log('Submit ss: ', partName, strLength, citySelected)
+        if (citySelected === "None"){
+            citySelected = ""
+        }
+        if (ancestry === "None"){
+            ancestry = ""
+        }
+        if (citySelected === "None"){
+            citySelected = ""
+        }
+        if (citySelected === "None"){
+            citySelected = ""
+        }
         const searchPath = `${partName}+${ancestry}+${citySelected}+${education}+${profession}`
         console.log('Form submitted : ', searchPath)
         props.returnHandler(searchPath)
@@ -54,88 +68,101 @@ function SearchForm(props) {
 
     return (
         <div>
+            
         <form className={classes.form} onSubmit={formSubmitHandler}>
-            <div className={classes.control}>
-                <label htmlFor="typename" className={classes.labelinput}>
-                    <h3 style={{marginRight: '2px', color: 'red'}}>Name</h3>
-                </label>
-                <input 
-                    type="text"
-                    id="searchuser"
-                    placeholder='Enter 3 letters'
-                    aria-label='Enter 3 letters' 
-                    ref={inputRef}
-                />
-            </div>          
-            <div className={classes.control}>
-                <label htmlFor="ancestryVillage" className={classes.labelinput}>
-                    <h3 style={{marginRight: '2px', color: 'red'}}>Ancestral Village</h3>
-                </label>
-                <select id='ancestryVillage' ref={ancestryInputRef}>
-                    {
-                        ancestralVillage.map(city => {
-                            return (
-                                <option key = {city.name} value={city.name}>{city.name}</option>
-                            )
-                        })
-                    }
-                </select>
+            <div className={classes.wrap__search}>
+            <div className={classes.main__query}>
+                <h3>Main Query</h3>
+                <div className={classes.main__query__club}>
+                    <div className={classes.control}>
+                        <label htmlFor="typename" className={classes.labelinput}>
+                            <h3>Name</h3>
+                        </label>
+                        <input 
+                            type="text"
+                            id="searchuser"
+                            placeholder='Enter 3 letters'
+                            aria-label='Enter 3 letters' 
+                            ref={inputRef}
+                        />
+                    </div>  
+                    <div className={classes.control}>
+                        <label htmlFor="ancestryVillage" className={classes.labelinput}>
+                            <h3 >Ancestry</h3>
+                        </label>
+                        <select id='ancestryVillage' ref={ancestryInputRef}>
+                            {
+                                ancestralVillage.map(city => {
+                                    return (
+                                        <option key = {city.name} value={city.name}>{city.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div> 
+                    <div className={classes.control}>
+                        <label htmlFor="cityname" className={classes.labelinput} >
+                            <h3 >City</h3>
+                        </label>
+                        <select id='cityname' ref={cityInputRef}>
+                            {
+                                citiesData.data.map(city => {
+                                    return (
+                                        <option key = {city.name} value={city.name}>{city.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <div className={classes.control}>
-                <label htmlFor="cityname" className={classes.labelinput} >
-                    <h3 style={{marginRight: '2px', color: 'red'}}>City</h3>
-                </label>
-                <select id='cityname' ref={cityInputRef}>
-                    {
-                        citiesData.data.map(city => {
-                            return (
-                                <option key = {city.name} value={city.name}>{city.name}</option>
-                            )
-                        })
-                    }
-                </select>
+            <div className={classes.main__query}>
+                <h3>Additional filters</h3>
+                <div className={classes.main__query__club}>
+                    <div className={classes.control}>
+                        <label htmlFor="educationName" className={classes.labelinput} >
+                            <h3 >Education</h3>
+                        </label>
+                        <select id='educationName' ref={educationInputRef}>
+                            {
+                                educationData.data.map(city => {
+                                    return (
+                                        <option key = {city.name} value={city.name}>{city.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className={classes.control}>
+                        <label htmlFor="professionName" className={classes.labelinput} >
+                            <h3>Profession</h3>
+                        </label>
+                        <select id='professionName' ref={professionInputRef}>
+                            {
+                                professionData.data.map(city => {
+                                    return (
+                                        <option key = {city.name} value={city.name}>{city.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                </div>
             </div>
-
-            <div className={classes.control}>
-                <label htmlFor="educationName" className={classes.labelinput} >
-                    <h3 style={{marginRight: '2px', color: 'red'}}>Education</h3>
-                </label>
-                <select id='educationName' ref={educationInputRef}>
-                    {
-                        educationData.data.map(city => {
-                            return (
-                                <option key = {city.name} value={city.name}>{city.name}</option>
-                            )
-                        })
-                    }
-                </select>
             </div>
-
-            <div className={classes.control}>
-                <label htmlFor="professionName" className={classes.labelinput} >
-                    <h3 style={{marginRight: '2px', color: 'red'}}>Profession</h3>
-                </label>
-                <select id='professionName' ref={professionInputRef}>
-                    {
-                        citiesData.data.map(city => {
-                            return (
-                                <option key = {city.name} value={city.name}>{city.name}</option>
-                            )
-                        })
-                    }
-                </select>
-            </div>
-            {searchtype && 
-            <div className={classes.formsubmitbutton}>
-                <Button >Find </Button>
-            </div>
-            }
-            {!searchtype && 
-            <div className={classes.formsubmitbutton}>
-                <Button >Connections</Button>
-            </div>
-            }
+            {/* <div className={classes.formreset}> */}
+                {searchtype && 
+                    <div className={classes.formsubmitbutton}>
+                        <ButtonLarge >Search any individual criteria in main query or in filters, or combine main with filters </ButtonLarge>
+                    </div>
+                }
+                {!searchtype && 
+                    <div className={classes.formsubmitbutton}>
+                        <Button >Search Connections -- Between any 2 people</Button>
+                    </div>
+                }
+            {/* </div> */}
         </form>
 
         <div className={classes.formreset}>
@@ -145,13 +172,6 @@ function SearchForm(props) {
                         Reset Search
                 </Button>
             </div>
-            {/* <div><h2>OR</h2></div>
-            <div className={classes.formresetbutton}>
-                <Button 
-                    onClick={handleReset}>
-                        Search Connections Between People
-                </Button>
-            </div> */}
         </div>
         </div>
     )

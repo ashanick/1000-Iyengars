@@ -38,9 +38,11 @@ export default function handler({query: {userName}}, res) {
     .run(`OPTIONAL MATCH pathmem = (b:Member {name: '${userName}'}) - [r:MEMORY_OWN] ->(o:Memories) 
         OPTIONAL MATCH pathphoto = (a:Member {name: '${userName}'}) - [w:PHOTO_OWN] ->(q:PhotoGallery)
         OPTIONAL MATCH (m:Member {name: '${userName}'}) 
+        OPTIONAL MATCH (j:Details {name: '${userName}'})
+        OPTIONAL MATCH pathspouse =(ps:Member {name: '${userName}'})<-[pr:SPOUSE_OF]-(qs:Member)
         OPTIONAL MATCH path=(n:Member {name: '${userName}'})-[:PARENT_OF*1..5]-(p) 
-        WITH pathmem, pathphoto, q, r, w, m, n, path, range(0,length(path)-1) as index  
-        Return m, n, path, [i in index | CASE WHEN nodes(path)[i] = startNode(RELATIONSHIPS(path)[i]) THEN 'incoming' ELSE 'outgoing' END ] as directions, pathmem, r, pathphoto, w, q`)    
+        WITH pathmem, pathphoto, j, q, r, w, m, n, path, pr, ps, qs, range(0,length(path)-1) as index  
+        Return m, n, path, [i in index | CASE WHEN nodes(path)[i] = startNode(RELATIONSHIPS(path)[i]) THEN 'incoming' ELSE 'outgoing' END ] as directions, pathmem, r, pathphoto, w, q, j, pr, qs`)    
     .then(function(result){
             console.log('Got it Records')
 
@@ -77,11 +79,48 @@ export default function handler({query: {userName}}, res) {
                     if ( firstNode){
                         firstNode = false
                         prevLength = 0
+                        var prof = ""
+                        var education = ""
+                        var school = ""
+                        var earlydescription = ""
+                        var hobby = ""
+                        var spouse = ""
+                        var adultdescription = ""
+                        var notes = ""
+                        var dob = ''
+                        if (record._fields[9]){
+                            // console.log('Detail Record : ', record._fields[9])
+                            prof = record._fields[9].properties.profession
+                            education = record._fields[9].properties.education
+                            school = record._fields[9].properties.school
+                            earlydescription = record._fields[9].properties.earlydescription
+                            hobby = record._fields[9].properties.hobby
+                            notes = record._fields[9].properties.notes
+                            adultdescription = record._fields[9].properties.adultdescription
+                            dob = String(record._fields[9].properties.dob.year.low) + '-' + String(record._fields[9].properties.dob.month.low) + '-' + String(record._fields[9].properties.dob.day.low)
+                            console.log('DOB Date Field: ', record._fields[9].properties.dob.year.low )
+                            console.log('String Date : ', dob)
+                            // console.log ('Profession : ', prof) 
+                        }
+
+                        if (record._fields[10]){
+                            // console.log('Spouse : ', record._fields[10], 'Spise: ', record._fields[11])
+                            spouse = record._fields[11].properties.name
+                        }
 
                         memberDetail.push({
                             id: record._fields[1].properties.name,
                             name: record._fields[1].properties.name,
                             imageURL: record._fields[1].properties.imageURL,
+                            profession: prof,
+                            education: education,
+                            school: school,
+                            earlydescription: earlydescription,
+                            hobby,
+                            spouse,
+                            notes,
+                            adultdescription,
+                            dob
                         })
                         userNodes.push({
                             id: record._fields[1].properties.name,
@@ -239,7 +278,7 @@ export default function handler({query: {userName}}, res) {
             const data =  {nodes:_.uniqBy(userNodes, "id"),
                     links: userLinks
                     }
-            // console.log('Data : ', data)
+            // console.log('Details : ', memberDetail)
             
             const member = {member: memberDetail, 
                 children:_.uniqBy( children, "name"), grandChildren: _.uniqBy(grandChildren, "name"), 
@@ -251,10 +290,10 @@ export default function handler({query: {userName}}, res) {
             }
 
             const memories = {memories: _.uniqBy(memoriesList, "title")}
-            const photoGallery = {photoList: _.uniqBy(photoList, "id")}
+            const photoGallery = {photoList: _.uniqBy(photoList, "title")}
             // console.log('Children ', children, grandChildren, 'GrandChildren : ')
             // console.log('Parent : ', parents, 'Grandparent ', grandParent)
-            console.log('Siblings ', siblings)
+            // console.log('Siblings ', siblings)
             // console.log('Memories : ', memories)
             console.log('En Fin With Individual User: 🙌🙌🙌🙌💥💥💥💥💥💥😎😎😎😎😎 ')
             if (firstNode) {

@@ -13,6 +13,7 @@ function HomeTopSection(){
                     width={400}
                     height={500}
                     layout='responsive'
+                    placeholder='empty'
                     />
                 </div>
                 <h3>Ms. Asha Sundararajan</h3>
@@ -22,7 +23,7 @@ function HomeTopSection(){
                 <h1 style={{color: 'blue'}}>Welcome to 1000+ Iyengars</h1>
                 <h3>The Cauvery Delta Iyengars: How many degrees of seperation</h3>
                 <p>We have a compendium of members from Kodavasal, Kumbakonam, Mannargudi, Sri Rangam, Vaduvoor, Vazhutoor, and Vippodu. 
-                        Our oldest member can be traced to 1876. The Clans page showcases members 5+ generations.</p>
+                        Our oldest member Vijaya Dikshithar also know as Yagna Dikshithar from Vazhuthur can be traced to 1700. The Clans page showcases members 5+ generations.</p>
                         <h4>Please reach out to add, change, or remove any details you do not feel comfortable sharing</h4>
                 <p>In 1953, my uncle Dr. Gopalachari (only child), an only child, married my aunt Saroja (extended family). For years, he was not sure who was related to her,
                 and ended up treating patients all calling him, "atimber." 

@@ -11,10 +11,16 @@ function IndivUser(props) {
     const {member, name,  children, grandChildren, grandParent, parents, siblings, 
         greatGrandParent, greatGrandChildren, greatGreatGrandParent, greatGreatGrandChildren,
         greatGreatGreatGrandParent, greatGreatGreatGrandChildren} = props.items
-        console.log('props : ', member[0].name)
+    const dob = props.items.member[0].dob
+    const formattedDob = new Date(dob).toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    })
+    // console.log('Indiv User props DOB: ', dob, 'Formatted date : ', formattedDob)
     var pname= member[0].name
     var pImageURL = member[0].imageURL
-    console.log('Pname', pname, 'Image : ', pImageURL)
+    // console.log('Pname', pname, 'Image : ', pImageURL)
     // console.log('Great Grandparents Indiv User: ', greatGrandParent, "Child : ", greatGrandChildren)
     var grandParentState = true
     var greatGrandParentState = true
@@ -91,6 +97,7 @@ function IndivUser(props) {
                             width={250}
                             height={250}
                             layout='responsive'
+                            placeholder='empty'
                             />
                         </div>
                         <div className={classes.content}>
@@ -101,9 +108,24 @@ function IndivUser(props) {
                 
                 <div className={classes.content}>
                     <h2>{name}</h2>
-                    <h4>Date & Place of Birth: </h4>
+                    <div className={classes.image}>
+                            <Image
+                            src={'/images/baby.png'}
+                            alt={pname}
+                            width={250}
+                            height={250}
+                            layout='responsive'
+                            placeholder='empty'
+                            />
+                        </div>
+                    <div className={classes.dateDetails}>
+                        Date & Place of Birth: {formattedDob}
+                    </div>
+                    
                     <h4>Date & Place of Marriage: </h4>
+                    <h4>Spouse: {member[0].spouse}</h4>
                     <h4>Date & Cause of Death: </h4>
+                    
                     {greatGreatGreatGrandParentState && 
                         <div className={classes.children}>
                             <hr style={{border: '1px solid red', marginBottom: '10px'}}/>
