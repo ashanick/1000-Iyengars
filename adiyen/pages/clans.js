@@ -23,7 +23,7 @@ function ClansPage(){
     )
     
     if (!data) {
-        return <div>Please wait loading IMAGES .... 😎😎 ... It takes a while 😘😘😘 .. Database is free and large  ✔️✔️✔️  </div>
+        return <div>Oh Please wait loading IMAGES .... 😎😎 ... It takes a while 😘😘😘 .. Database is free and large  ✔️✔️✔️  </div>
     }
 
     if (error){
