@@ -1,5 +1,6 @@
 import classes from './footer.module.css'
-import Image from 'next/image';
+import Link from 'next/link';
+// import Image from 'next/image';
 
 function FooterPage (){
     return (
@@ -9,10 +10,34 @@ function FooterPage (){
                     <h2>Acknowledgements</h2>
                     <hr style={{border: '1px solid red'}}/>
                     <ul>
-                        <li>Kodavasal Family Tree, Mrs. Kumuda and Mr. Seshadri Sreenivasan</li>
-                        <li>Kumbakonam C.L.Rangaswami Family Tree, Kuppuswamy</li>
-                        <li>R.S.Kuppuswamy Family Stories, Babchi Vaidehi</li>
-                        <li>Vazhyutoor Dikshitar Vamsa from 1700</li>
+                        <li key="kodavasal">
+                            <Link href={'/viewclans/Kodavasal'}>
+                                <a>
+                                    Kodavasal Family Tree, Mrs. Kumuda and Mr. Seshadri Sreenivasan
+                                </a>
+                            </Link>
+                        </li>
+                        <li key="kumbakonam">
+                            <Link href={'/viewclans/Kumbakonam'}>
+                                <a>
+                                    Kumbakonam C.L.Rangaswami Family Tree, Kuppuswamy
+                                </a>
+                            </Link>
+                        </li>
+                        <li key="vamsa2">
+                            <Link href={'/viewclans/Vamsa2'}>
+                                <a>
+                                    R.S.Kuppuswamy Family Stories, Babchi Vaidehi
+                                </a>
+                            </Link>
+                        </li>
+                        <li key="vamsa1">
+                            <Link href={'/viewclans/Vamsa1'}>
+                                    <a>
+                                        Vazhyutoor Dikshitar Vamsa from 1700
+                                    </a>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={classes.footercontentothers}>

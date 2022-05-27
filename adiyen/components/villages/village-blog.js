@@ -5,7 +5,7 @@ import PhotoGrid from '../memories/photo-grid';
 function VillageBlog(props){
     const {name, description, imageURL, author, blogDate,
         title, photoList} = props.items
-    console.log('Village Blog : ', props.items)
+    // console.log('Village Blog : ', props.items)
     var photoState = false;
     if (props.items.photoList.length > 0){
         photoState = true

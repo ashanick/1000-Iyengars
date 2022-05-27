@@ -1,0 +1,33 @@
+{
+  "..\\components\\overlayGraph\\allusers-graph.js -> ../../lib/NoSSRForceGraph": {
+    "id": 9684,
+    "files": [
+      "static/chunks/318.65f09fe5b5aa285b.js",
+      "static/chunks/684.db9724001c6c917d.js"
+    ]
+  },
+  "..\\components\\pdfViewingClans\\kodavasalClan.js -> react-file-viewer": {
+    "id": 5058,
+    "files": [
+      "static/chunks/ec0c8d6a.d7ad9f9990655485.js"
+    ]
+  },
+  "..\\components\\pdfViewingClans\\kumbakonamClan.js -> react-file-viewer": {
+    "id": 5058,
+    "files": [
+      "static/chunks/ec0c8d6a.d7ad9f9990655485.js"
+    ]
+  },
+  "..\\components\\pdfViewingClans\\vamsa1.js -> react-file-viewer": {
+    "id": 5058,
+    "files": [
+      "static/chunks/ec0c8d6a.d7ad9f9990655485.js"
+    ]
+  },
+  "..\\components\\pdfViewingClans\\vamsa2.js -> react-file-viewer": {
+    "id": 5058,
+    "files": [
+      "static/chunks/ec0c8d6a.d7ad9f9990655485.js"
+    ]
+  }
+}

@@ -1,9 +1,8 @@
 import classes from './user-familydetails.module.css'
 import Card from '../ui/card'
-import Image from 'next/image';
 
 function UserFamilyDetails(props) {
-    console.log('Details : ', props)
+    // console.log('Details : ', props)
     return (
         <li className={classes.detailitem}>
             <Card className={classes.detailitemcontent}>

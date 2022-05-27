@@ -3,7 +3,7 @@ import MemoriesItem from './memories-item'
 
 function MemoriesGrid(props){
     const {memories} = props.items
-    console.log('Memories Grid : ', memories)
+    // console.log('Memories Grid : ', memories)
 
     if (!memories){ 
         return(

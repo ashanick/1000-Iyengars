@@ -1,7 +1,7 @@
 import KodavasalClan from '../components/pdfViewingClans/kodavasalClan'
 
 function AboutUs(){
-    console.log('In Contact Us')
+    // console.log('In Contact Us')
     return (
         <div>
             In About Us

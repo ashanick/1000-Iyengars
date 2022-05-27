@@ -9,7 +9,7 @@ var driver = neo4j.driver(
 var session = driver.session();
 
 function handler(req, res) {
-    console.log('In Clans')
+    // console.log('In Clans')
     var membersList = []
     session 
         .run("MATCH (n:Member)-[k:PARENT_OF*4]->(f:Member) RETURN n order by n.name")
@@ -26,7 +26,8 @@ function handler(req, res) {
             res.json({membersData: membersData})
         })
         .catch(function(error){
-            console.log('Opps sorry budda mil gaya :', error)
+            res.status(201).json({message: 'Error'})
+            // console.log('Opps sorry budda mil gaya :', error)
         })
 }
 

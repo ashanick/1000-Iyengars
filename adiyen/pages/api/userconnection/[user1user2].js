@@ -7,14 +7,14 @@ var driver = neo4j.driver(
 
 var session = driver.session();
 export default function handler({query: {user1user2}}, res) {
-    console.log('St George Connections Search +++ V2 Boom 7777 🙌🙌: ', user1user2)
+    // console.log('St George Connections Search +++ V2 Boom 7777 🙌🙌: ', user1user2)
     const xx = user1user2.split('+')
-    console.log('XX Split', xx[0], xx[1])
+    // console.log('XX Split', xx[0], xx[1])
     var searchStatement = "Match (p1:Member {name: '"
     searchStatement = searchStatement+ xx[0] + "'}), (p2:Member {name: '"
     searchStatement = searchStatement+ xx[1] + "'}), path = shortestpath((p1)-[*..7]-(p2)) where NONE (r in relationships(path) WHERE type(r) = 'BELONGS_TO') WITH p1, p2, path, range(0,length(path)-1) as index return p1, p2, path, [i in index | CASE WHEN nodes(path)[i] = startNode(RELATIONSHIPS(path)[i]) THEN 'incoming' ELSE 'outgoing' END ] as directions "
-    console.log('XX Split', xx[0], xx[1])
-    console.log('Search Statement', searchStatement)
+    // console.log('XX Split', xx[0], xx[1])
+    // console.log('Search Statement', searchStatement)
 
     var nodeType = "parent"
     var userNodes = []
@@ -25,14 +25,14 @@ export default function handler({query: {user1user2}}, res) {
     session
       .run(`${searchStatement}`)
       .then(function(result){
-        console.log('Success Result 😎😎', result.records)
+        // console.log('Success Result 😎😎', result.records)
         result.records.forEach(function(record){
           // console.log('Search result record 0 😢😢', record._fields[0])
           // console.log('Search result record 2 Start 😢😢', record._fields[2])
           // console.log('Search result record 2 Segments Path Segment 😢😢', record._fields[2].segments.PathSegment)
           // console.log('Search result record 2 Segment Start 😢😢', record._fields[2].segments.length)
           // console.log('Search result record 2 Segment Start 😢😢', record._fields[2].segments.length)
-          console.log('Search result record 3 😢😢 😎😎', record._fields[3])
+          // console.log('Search result record 3 😢😢 😎😎', record._fields[3])
           // console.log('Start person', record._fields[0].properties.name) 
 
           membersList.push({
@@ -99,6 +99,7 @@ export default function handler({query: {user1user2}}, res) {
         .json({data: data, membersData: membersData})
       })
       .catch(function(error){
-        console.log('Hai hai', error)
+        res.status(201).json({message: 'Error'})
+        // console.log('Hai hai', error)
       })
 }

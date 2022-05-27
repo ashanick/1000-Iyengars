@@ -6,13 +6,13 @@ import NewSearch from "../components/users/new-search"
 // import Hero from "../components/homepage/hero"
 
 const fetcher = async(url) => {
-    console.log('in fetcher all clans')
+    // console.log('in fetcher all clans')
     const res = await fetch(url)
     const data = await res.json()
     if (!data || res.status != 200) {
         throw new Error(data.message)
     }
-    console.log('Fetched Data : ', data)
+    // console.log('Fetched Data : ', data)
 
     return data
 }
@@ -29,7 +29,7 @@ function ClansPage(){
     if (error){
         return <div>Apologies Error 😢😢😢😢😢😢 Please try again</div>
     }
-    console.log('=🤳🤳🤳', data, error)
+    // console.log('=🤳🤳🤳', data, error)
     return (
         <div>
             <Head>

@@ -5,7 +5,7 @@ function UsersGrid(props) {
     const members = props.items.members
     const listType = props.listType
     const user1 = props.user1
-    console.log('Users List Type ', listType, 'User1', user1)
+    // console.log('Users List Type ', listType, 'User1', user1)
 
     if (!members) {
         return (

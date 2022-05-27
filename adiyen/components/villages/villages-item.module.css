@@ -2,7 +2,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     background-color: red;
     text-align: center;
-    width: 15rem;
+    width: 20rem;
     /* this feature changes card width */
     max-width: 20rem;
   }
@@ -46,7 +46,7 @@
 
   @media (max-width: 768px) {
     .grid {
-      min-width: 12rem;
-      max-width: 12rem;
+      min-width: 15rem;
+      max-width: 15rem;
     }
   }

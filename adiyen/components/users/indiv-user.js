@@ -1,6 +1,7 @@
 // import { map } from 'lodash';
 // import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import classes from './indiv-user.module.css'
 import LinkList from './linkList';
 
@@ -17,6 +18,8 @@ function IndivUser(props) {
         month: 'long',
         year: 'numeric'
     })
+    const dod = ''
+    const linkPath = `/users/${props.spouse}`
     // console.log('Indiv User props DOB: ', dob, 'Formatted date : ', formattedDob)
     var pname= member[0].name
     var pImageURL = member[0].imageURL
@@ -108,25 +111,72 @@ function IndivUser(props) {
                 
                 <div className={classes.content}>
                     <h2>{name}</h2>
-                    <div className={classes.image}>
+                    
+                    <div className={classes.dateDetails}>
+                        <div className={classes.imageicon}>
                             <Image
                             src={'/images/baby.png'}
                             alt={pname}
-                            width={250}
-                            height={250}
+                            width={25}
+                            height={25}
                             layout='responsive'
                             placeholder='empty'
                             />
                         </div>
-                    <div className={classes.dateDetails}>
-                        Date & Place of Birth: {formattedDob}
+                        <p className={classes.detailpara}>Date & Place of Birth: -</p>{formattedDob}
                     </div>
+                    <div className={classes.dateDetails}>
+                        <div className={classes.imageicon}>
+                            <Image
+                            src={'/images/couple.png'}
+                            alt={pname}
+                            width={25}
+                            height={25}
+                            layout='responsive'
+                            placeholder='empty'
+                            />
+                        </div>
+                        <div className={classes.dateDetails__specs}> 
+                            <div className={classes.dateDetails__specsp}>
+                                <p className={classes.detailpara} style={{margin: '0', padding: '0'}}>
+                                    Date of Marriage: -
+                                </p>
+                                {formattedDob}
+                            </div>
+                            
+                            <p className={classes.detailpara} style={{margin: '0', padding: '0'}}>
+                                Spouse: -
+                                <Link href={linkPath}>
+                                    <a>{member[0].spouse}</a>
+                                </Link>
+                            </p>
+                            
+                        </div> 
+                    </div>
+                   
+                   {
+                       dod && 
+                       <div className={classes.dateDetails}>
+                        <div className={classes.imageicon}>
+                            <Image
+                            src={'/images/surya.png'}
+                            alt={pname}
+                            width={25}
+                            height={25}
+                            layout='responsive'
+                            placeholder='empty'
+                            />
+                        </div>
+                        <div className={classes.dateDetails__specs}> 
+                            <p style={{margin: '0rem', padding: '0rem'}}>Date of death: {formattedDob}</p>
+                            <p style={{margin: '0rem', padding: '0rem'}}>Cause: {member[0].spouse}</p>
+                            
+                        </div> 
+                    </div>
+                   }
                     
-                    <h4>Date & Place of Marriage: </h4>
-                    <h4>Spouse: {member[0].spouse}</h4>
-                    <h4>Date & Cause of Death: </h4>
                     
-                    {greatGreatGreatGrandParentState && 
+                    {greatGreatGreatGrandParentState &&
                         <div className={classes.children}>
                             <hr style={{border: '1px solid red', marginBottom: '10px'}}/>
                             <div>

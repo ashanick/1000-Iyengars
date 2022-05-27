@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function MemoriesItem(props) {
     const {id, title, excerpt, imageURL} = props.items
-    console.log('Memories Item : ', imageURL)
+    // console.log('Memories Item : ', imageURL)
     const imagePath = `/${imageURL}`
     // const imagePath='/images/memories/AdityaUpsideDownBhindi.jpg'
     

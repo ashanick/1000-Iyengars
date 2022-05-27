@@ -5,11 +5,10 @@ const FileViewer = dynamic(()=> import('react-file-viewer'), {
 })
 
 function KodavasalClan(){
-    console.log('In Contact Us')
+    // console.log('In Contact Us')
     return (
         <div>
-            In About Us
-            <FileViewer fileType="pdf" filePath="/pdffiles/Kodavasal-Family.pdf" />
+            <FileViewer key="kodavasal" fileType="pdf" filePath="/pdffiles/Kodavasal-Family.pdf" />
         </div>
     )
 }

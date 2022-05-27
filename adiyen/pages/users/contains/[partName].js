@@ -3,10 +3,10 @@ import useSWR from 'swr'
 import UsersGrid from '../../../components/users/users-grid'
 
 const fetcher = async(url) => {
-    console.log('In fetcher')
+    // console.log('In fetcher')
     const res = await fetch(url)
     const data = await res.json()
-    console.log('In fetcher PartName', data)
+    // console.log('In fetcher PartName', data)
     if (res.status !== 200) {
         throw new Error(data.message)
     }
@@ -19,8 +19,8 @@ function SearchByContains (){
     const partName = router.query.partName
     var members = []
 
-    console.log('Query router Aiyaa', router.query)
-    console.log('User Detail, Part 1', partName)
+    // console.log('Query router Aiyaa', router.query)
+    // console.log('User Detail, Part 1', partName)
     if (partName === null) {
         return (
             <div>Please send user request with correct credentials</div>
@@ -44,10 +44,10 @@ function SearchByContains (){
         )
     }
 
-    console.log('Kolaveri Data1 ', data)
+    // console.log('Kolaveri Data1 ', data)
     members = data
 
-    console.log('Members asearchlpha ', members)
+    // console.log('Members asearchlpha ', members)
 
     return (
         <div>

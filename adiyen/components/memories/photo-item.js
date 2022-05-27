@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function PhotoItem(props) {
     const {id, title, imageURL} = props.items
-    console.log('Photo Item Props', props.items)
+    // console.log('Photo Item Props', props.items)
     const imagePath = `/${imageURL}`
     return (
         <li className={classes.post}>

@@ -9,14 +9,14 @@ var session = driver.session();
 
 export default function handler({query: {memoryId}}, res) {
     var searchString = "OPTIONAL MATCH (n:Memories {memid: '" + memoryId + "'}) RETURN n"
-    console.log(' 🤳🤳🤳 Memory Id Api 888888 =====: ', memoryId, 'String', searchString)
+    // console.log(' 🤳🤳🤳 Memory Id Api 888888 =====: ', memoryId, 'String', searchString)
     var i = 1;
     var memoryDetail = []
     // session.run(`OPTIONAL MATCH (m:Memories {id: '$memoryId}') RETURN m`)
     session
     .run(`OPTIONAL MATCH (n:Memories {memid: 'kuppuswamyWriting'}) RETURN n`)
     .then(function(result){
-        console.log('Success')
+        // console.log('Success')
         if (result.records.length === 0) {
             res.status(201).json({message: "Sorry"})
         } else {
@@ -41,11 +41,11 @@ export default function handler({query: {memoryId}}, res) {
                 }
             })
         }
-        console.log('MemoryDetails : ', memoryDetail)
+        // console.log('MemoryDetails : ', memoryDetail)
         res.status(200)
             .json({data: memoryDetail})
     })
     .catch(function(error){
-        console.log("Ha ha what da ya do??", error)
+        // console.log("Ha ha what da ya do??", error)
     })
 }

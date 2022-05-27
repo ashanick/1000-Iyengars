@@ -9,8 +9,8 @@ import { useRouter } from "next/router";
 
 function UsersSearch() {
     const router = useRouter()
-    console.log('Cities : ', citiesData.data)
-    console.log('Education : ', educationData.data)
+    // console.log('Cities : ', citiesData.data)
+    // console.log('Education : ', educationData.data)
     const typeNameInputRef = useRef()
     const inputRef = useRef()
 
@@ -20,11 +20,11 @@ function UsersSearch() {
         const strLength = inputRef.current.value.length
         if (memberSearch && strLength > 3) {
             const tempMemberType = typeNameInputRef.current.value
-            console.log('Form ', inputRef.current.value, tempMemberType, strLength)
+            // console.log('Form ', inputRef.current.value, tempMemberType, strLength)
             const fullPath = `/users/memberSearch/${memberSearch}/${tempMemberType}`
             router.push(fullPath)
         } else {
-            console.log('Kolaveri Kolaveri Di')
+            // console.log('Kolaveri Kolaveri Di')
         }
 
     }

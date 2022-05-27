@@ -8,7 +8,7 @@ var driver = neo4j.driver(
 var session = driver.session();
 
 export default function handler({query: {userName}}, res) {
-    console.log(' 🤳🤳🤳User Name Api 6666 =====: ', userName)
+    // console.log(' 🤳🤳🤳User Name Api 6666 =====: ', userName)
 
     var userNodes = []
     var userLinks = []
@@ -44,7 +44,7 @@ export default function handler({query: {userName}}, res) {
         WITH pathmem, pathphoto, j, q, r, w, m, n, path, pr, ps, qs, range(0,length(path)-1) as index  
         Return m, n, path, [i in index | CASE WHEN nodes(path)[i] = startNode(RELATIONSHIPS(path)[i]) THEN 'incoming' ELSE 'outgoing' END ] as directions, pathmem, r, pathphoto, w, q, j, pr, qs`)    
     .then(function(result){
-            console.log('Got it Records')
+            // console.log('Got it Records')
 
             if (result.records.length === 0){
                 res.status(201).json({message: "Opps Not Found"})
@@ -97,9 +97,11 @@ export default function handler({query: {userName}}, res) {
                             hobby = record._fields[9].properties.hobby
                             notes = record._fields[9].properties.notes
                             adultdescription = record._fields[9].properties.adultdescription
-                            dob = String(record._fields[9].properties.dob.year.low) + '-' + String(record._fields[9].properties.dob.month.low) + '-' + String(record._fields[9].properties.dob.day.low)
-                            console.log('DOB Date Field: ', record._fields[9].properties.dob.year.low )
-                            console.log('String Date : ', dob)
+                            if (record._fields[9].properties.dob){
+                                // console.log('DOB Date Field: ', record._fields[9].properties.dob )
+                                dob = record._fields[9].properties.dob
+                            }
+                            // console.log('String Date : ', dob)
                             // console.log ('Profession : ', prof) 
                         }
 
@@ -161,7 +163,7 @@ export default function handler({query: {userName}}, res) {
                         }
 
                         if (prevLength > record._fields[2].length) {
-                            console.log('How did this happen')
+                            // console.log('How did this happen')
                         }
 
                         people = false
@@ -295,13 +297,14 @@ export default function handler({query: {userName}}, res) {
             // console.log('Parent : ', parents, 'Grandparent ', grandParent)
             // console.log('Siblings ', siblings)
             // console.log('Memories : ', memories)
-            console.log('En Fin With Individual User: 🙌🙌🙌🙌💥💥💥💥💥💥😎😎😎😎😎 ')
+            // console.log('En Fin With Individual User: 🙌🙌🙌🙌💥💥💥💥💥💥😎😎😎😎😎 ')
             if (firstNode) {
                 res.status(201).json({message: "Opps Not Found"})
             } else {
                 res.json({data: data, member: member, memories: memories, photoGallery: photoGallery})
             }
         }) .catch(function(error){
-            console.log("Hey airaaa", error);
+            // console.log("Hey airaaa", error);
+            res.status(201).json('Error in finding Data')
         });
   }

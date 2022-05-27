@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import useSWR from 'swr'
 import Head from "next/head"
+import Image from 'next/image';
 
 import AllUsersGraph from '../../components/overlayGraph/allusers-graph'
 import IndivUser from '../../components/users/indiv-user';
@@ -31,7 +32,7 @@ function UserDetailPage () {
     // console.log('User Detail, Part 1', userName)
     if (userName === null) {
         return (
-            <div>Please send user request with correct credentials</div>
+            <div style={{margin: '2rem', textAlign: 'center'}}>Please send user request with correct credentials</div>
         )
     }
 
@@ -42,20 +43,22 @@ function UserDetailPage () {
     
     if (error) {
         return (
-            <div><h1>Something went wrong .... Please try again</h1></div>
+            <div style={{textAlign: 'center', marginTop: '5rem', marginBottom: '5rem'}}><h1>😢😢😢 ...Something went wrong .... Please try again with correct details ... 😢😢😢</h1></div>
         )
     }
 
     if (!data) {
         return (
-            <div>Please Wait Fetching Data =🤳🤳 ... Free Database 😎 ... And Large ... 🙌🙌🙌🙌</div>
+            <div style={{textAlign: 'center', marginTop: '5rem', marginBottom: '5rem'}}>
+                <h1>Please Wait Fetching Data =🤳🤳 ... Free Database 😎 ... And Large ... 🙌🙌🙌🙌</h1>
+            </div>
         )
     }
 
     // console.log('After fetching Member Data', data.member.member[0].id)
 
-    console.log('After fetching graph Photo Gallery', data.photoGallery.photoList.length)
-    console.log('Details : ', data.member.member)
+    // console.log('After fetching graph Photo Gallery', data.photoGallery.photoList.length)
+    // console.log('Details : ', data.member.member)
     if (data.memories.memories.length > 0) {
         memoryState = true
     } 
@@ -94,11 +97,48 @@ function UserDetailPage () {
                     }
                     {/* <FamilyTree /> */}
                     <div className={classes.user__rightband}>
-                        <h4>Education: {data.member.member[0].education}</h4>
+                        <div className={classes.dateDetails}>
+                            <div className={classes.imageicon}>
+                                <Image
+                                src={'/images/graduation-hat.png'}
+                                alt={data.member.member[0].education}
+                                width={25}
+                                height={25}
+                                layout='responsive'
+                                placeholder='empty'
+                                />
+                            </div>
+                            <p className={classes.detailpara} style={{margin: '0', padding: '0'}}>Education: - </p>{data.member.member[0].education}
+                        </div>
                     </div>
+                    
                     <div className={classes.user__rightband}>
-                        <h4>Profession</h4>
-                        <h4>Hobbies</h4>
+                        <div className={classes.dateDetails}>
+                            <div className={classes.imageicon}>
+                                <Image
+                                src={'/images/suitcase.png'}
+                                alt={data.member.member[0].education}
+                                width={25}
+                                height={25}
+                                layout='responsive'
+                                placeholder='empty'
+                                />
+                            </div>
+                            <p className={classes.detailpara} style={{margin: '0', padding: '0'}}>Profession: -</p>{data.member.member[0].profession}
+                        </div>
+                        <div className={classes.dateDetails}>
+                            <div className={classes.imageicon}>
+                                <Image
+                                src={'/images/hobbies.png'}
+                                alt={data.member.member[0].education}
+                                width={25}
+                                height={25}
+                                layout='responsive'
+                                placeholder='empty'
+                                />
+                            </div>
+                            <p className={classes.detailpara} style={{margin: '0', padding: '0'}}>Hobbies: -</p>{data.member.member[0].profession}
+                        </div>
                     </div>
                     <div className={classes.user__description}>
                         <h3>Early Description</h3>
@@ -111,7 +151,8 @@ function UserDetailPage () {
                     
                     {/* {memoryState && 
                         <div> */}
-                            <h2>Down Memory Lane</h2>
+                        <hr style={{border: '1px solid red'}}/>
+                            <h2>Memory Photo Stories</h2>
                             <MemoriesGrid items={data.memories} />
                         {/* </div> */}
                     {/* } */}

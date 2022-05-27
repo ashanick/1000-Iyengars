@@ -18,7 +18,7 @@ function GridItemUser(props) {
     function submitClick(){
 
         const searchPath= `/linksUser2/${id}`
-        console.log('Links 2 Search Path', searchPath)
+        // console.log('Links 2 Search Path', searchPath)
         router.push(searchPath)
     }
 

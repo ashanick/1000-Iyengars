@@ -13,10 +13,10 @@ function IndivVillagePage() {
             </div>
         )
     }
-    console.log('Data', data.data)
+    // console.log('Data', data.data)
     if (data) {
         ancestralVillage = data.data.find(cc => cc.name === villageName)
-        console.log('Av', ancestralVillage)
+        // console.log('Av', ancestralVillage)
     }
 
     if (!ancestralVillage) {

@@ -5,7 +5,7 @@ import IndivMemoryDetail from '../../../components/memories/indiv-memory-detail'
 const fetcher = async(url) => {
     const res = await fetch(url)
     const data = await res.json()
-    console.log('In fetcher')
+    // console.log('In fetcher')
     if (res.status !=200) {
         throw new Error(data.message)
     }
@@ -15,7 +15,7 @@ const fetcher = async(url) => {
 function MemoryDetailPage () {
     const router = useRouter();
     const memoryId = router.query.memoryId
-    console.log('MemoryId : ', memoryId)
+    // console.log('MemoryId : ', memoryId)
     if (memoryId === null){
         return (
             <div>Please send request with correct memory credentials</div>
@@ -41,7 +41,7 @@ function MemoryDetailPage () {
         )
     }
     var name = data.data[0].name
-    console.log('Data', name)
+    // console.log('Data', name)
     return (
         <div>
             <IndivMemoryDetail items={data.data} />

@@ -20,7 +20,7 @@
 
   @media (max-width: 767px) {
     .grid {
-      width: 29rem;
+      width: 90vw;
       /* margin: 0 -2rem; */
     } 
   } 

@@ -7,7 +7,7 @@ function NewSearch(){
 
     function getvalues(e){
         const searchPath = `/search-path/${e}`
-        console.log('Search Links In Search Links Pages function get values', searchPath)   
+        // console.log('Search Links In Search Links Pages function get values', searchPath)   
         router.push(searchPath)
     }
 

@@ -3,7 +3,7 @@ import classes from './indiv-memory-detail.module.css'
 
 function IndivMemoryDetail(props){
     const {id, name, date, heading1, title, imageURL, bannerimageURL} = props.items[0]
-    console.log('Indiv Memory Details : ', props.items[0].name)
+    // console.log('Indiv Memory Details : ', props.items[0].name)
     return (
         <div>
             <div className={classes.image} >

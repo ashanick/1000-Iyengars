@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NewSearch from "../users/new-search";
+
 import Image from "next/image";
 
 import classes from './main-header.module.css'
@@ -37,7 +37,7 @@ function MainHeader() {
                         </li>
 
                         <li> 
-                            <Link href="/aboutus">Contact</Link>
+                            <Link href="/contactus">Contact</Link>
                         </li>
                     </ul>
                 </nav>

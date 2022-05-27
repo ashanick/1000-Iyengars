@@ -7,12 +7,12 @@ var driver = neo4j.driver(
 
 var session = driver.session();
 export default function handler({query: {searchPath}}, res) {
-    console.log('Boom Boom Boom Common Search +++ 💥💥💥💥💥💥💥 V2 Boom : ', searchPath)
+    // console.log('Boom Boom Boom Common Search +++ 💥💥💥💥💥💥💥 V2 Boom : ', searchPath)
     const xx = searchPath.split('+')
-    console.log('XX Splits', xx[0], "ancestry Split: ", xx[1], ' City Split: ', xx[2])
+    // console.log('XX Splits', xx[0], "ancestry Split: ", xx[1], ' City Split: ', xx[2])
     var searchStatement = '';
     var testString = xx[0].charAt(0).toLowerCase() + xx[0].slice(1)
-    console.log('Converted to Lower Case : ', testString)
+    // console.log('Converted to Lower Case : ', testString)
      
     // XX[0] part name
     if (xx[0] !== '') {
@@ -21,37 +21,37 @@ export default function handler({query: {searchPath}}, res) {
 
     // xx 1 ancestry
     if (xx[1] !== '' && xx[1] !== 'None') {
-      console.log('Ancestry')
+      // console.log('Ancestry')
       if (xx[0] === ''){
-        console.log('Indiv ancestry : ', xx[1])
+        // console.log('Indiv ancestry : ', xx[1])
         searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:BELONGS_TO]-(c:Cities {name: '" + xx[1] + "'}) "
       } else {
-        console.log('Combined name ancesrty inside loop', xx[1])
+        // console.log('Combined name ancesrty inside loop', xx[1])
         searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:BELONGS_TO]-(c:Cities {name: '" + xx[1] + "'})  WHERE toLower(m.name) contains '" +testString +"'"
       }
     } 
 
     // xx 2 cities
     if (xx[2] !== '' && xx[2] !== 'None') {
-      console.log('City')
+      // console.log('City')
       if (xx[0] === ''){
-        console.log('Indiv city : ', xx[2])
+        // console.log('Indiv city : ', xx[2])
         searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:LIVED_IN]-(c:Cities {name: '" + xx[2] + "'}) "
       } else {
-        console.log('Combined name city', xx[2])
+        // console.log('Combined name city', xx[2])
         searchStatement = "OPTIONAL MATCH pathmem = (m:Member) -[r:LIVED_IN]-(c:Cities {name: '" + xx[2] + "'})  WHERE toLower(m.name) contains '" + testString +"'"
       }
     } 
 
     // xx 3 education
     if (xx[3] !== '' && xx[3] !== 'None') {
-      console.log('Education : ', xx[3])
+      // console.log('Education : ', xx[3])
       const temped = "OPTIONAL MATCH pathmem = (m:Member) -[r:DETAIL_OWN]-(c:Details {education: '" + xx[3] + "'}) "
       if (searchStatement === ''){
-        console.log('Ed 1st clause')
+        // console.log('Ed 1st clause')
         searchStatement = temped
       } else {
-        console.log('Ed else clause :', searchStatement)
+        // console.log('Ed else clause :', searchStatement)
         searchStatement = searchStatement + "AND exists((m)-[:DETAIL_OWN]-(:Details {education: '" + xx[3] + "'}))" 
       }
       // console.log('Education Search : ', searchStatement)
@@ -59,7 +59,7 @@ export default function handler({query: {searchPath}}, res) {
 
     // xx 4 profession
     if (xx[4] !== '' && xx[4] !== 'None') {
-      console.log('Profession : ', xx[4])
+      // console.log('Profession : ', xx[4])
       const temped = "OPTIONAL MATCH pathmem = (m:Member) -[r:DETAIL_OWN]-(c:Details {profession: '" + xx[4] + "'}) "
       if (searchStatement === ''){
         searchStatement = temped
@@ -71,12 +71,12 @@ export default function handler({query: {searchPath}}, res) {
 
     searchStatement = searchStatement + ' Return m'
 
-    console.log('🙌🙌🤳🤳 Where Clause : ', searchStatement)
+    // console.log('🙌🙌🤳🤳 Where Clause : ', searchStatement)
     var membersList  = []
     session
       .run(`${searchStatement}`)
       .then(function(result){
-        console.log('In success')
+        // console.log('In success')
         // console.log('Length ' , result.records)
 
         result.records.forEach(function(record){
@@ -85,7 +85,7 @@ export default function handler({query: {searchPath}}, res) {
           // console.log('Temp ', temp)
           if (temp !== null){
             if (record._fields[1]) {
-              console.log('Here I am what', record._fields[1])
+              // console.log('Here I am what', record._fields[1])
             }
             
             membersList.push({
@@ -106,6 +106,8 @@ export default function handler({query: {searchPath}}, res) {
         }
       })
       .catch(function(error){
-          console.log('Kolaveri : ', error)
+          // console.log('Kolaveri : ', error)
+          res.status(201)
+            .json({message: "Ioyooo"})
     })
 }

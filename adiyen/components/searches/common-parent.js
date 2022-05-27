@@ -2,7 +2,7 @@ import SearchForm from "./search-form"
 
 function CommonParentSearch() {
     function getvalues(e){
-        console.log('In function get values', e)   
+        // console.log('In function get values', e)   
     }
 
     return(

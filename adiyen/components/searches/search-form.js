@@ -22,13 +22,13 @@ function SearchForm(props) {
         searchtype = false
     }
 
-    console.log('New Search Props : ', searchtype, props.type)
+    // console.log('New Search Props : ', searchtype, props.type)
     if (citiesData) {
         ancestralVillage = citiesData.data.filter(cc => cc.aVillage === "true")
         // console.log('Av', ancestralVillage)
 
     }
-    console.log('Search Form', props)
+    // console.log('Search Form', props)
 
     function formSubmitHandler(event){
         event.preventDefault()
@@ -39,7 +39,7 @@ function SearchForm(props) {
         var profession = professionInputRef.current.value
         var education = educationInputRef.current.value
 
-        console.log('Submit ss: ', partName, strLength, citySelected)
+        // console.log('Submit ss: ', partName, strLength, citySelected)
         if (citySelected === "None"){
             citySelected = ""
         }
@@ -53,12 +53,12 @@ function SearchForm(props) {
             citySelected = ""
         }
         const searchPath = `${partName}+${ancestry}+${citySelected}+${education}+${profession}`
-        console.log('Form submitted : ', searchPath)
+        // console.log('Form submitted : ', searchPath)
         props.returnHandler(searchPath)
     }
 
     function handleReset(){
-        console.log('Clear all submited options')
+        // console.log('Clear all submited options')
         inputRef.current.value=""
         cityInputRef.current.value = ""
         ancestryInputRef.current.value = ""
