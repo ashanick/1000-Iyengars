@@ -50,7 +50,7 @@ function UserDetailPage () {
     if (!data) {
         return (
             <div style={{textAlign: 'center', marginTop: '5rem', marginBottom: '5rem'}}>
-                <h1>Please Wait Fetching Data =🤳🤳 ... Free Database 😎 ... And Large ... 🙌🙌🙌🙌</h1>
+                <h1>Please Wait Images take time .. 🤳🤳 ... Free Database 😎 ... And Large ... 🙌🙌🙌🙌</h1>
             </div>
         )
     }
